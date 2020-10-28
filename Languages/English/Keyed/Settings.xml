@@ -1,72 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-
-    <TinyTweaks.SettingsCategory>Tiny Tweaks</TinyTweaks.SettingsCategory>
-    <TinyTweaks.NextPage>Next Page</TinyTweaks.NextPage>
-    <TinyTweaks.PreviousPage>Previous Page</TinyTweaks.PreviousPage>
-    <TinyTweaks.Expand>Expand</TinyTweaks.Expand>
-    <TinyTweaks.Collapse>Collapse</TinyTweaks.Collapse>
- 
-    <TinyTweaks.GameRestartNotRequired>Note: Changes made to these settings will be applied instantly - a game restart is not required.</TinyTweaks.GameRestartNotRequired>
-    <TinyTweaks.GameRestartRequired>Note: Game restart required in order for any changes to these settings to take effect.</TinyTweaks.GameRestartRequired>
-
-    <!-- QoL Changes -->
-
-    <TinyTweaks.QualityOfLifeChangesHeading>Quality-of-Life Changes</TinyTweaks.QualityOfLifeChangesHeading>
-
-    <TinyTweaks.QoLChanges.AnimalMedicalAlerts>Animal medical alerts</TinyTweaks.QoLChanges.AnimalMedicalAlerts>
-    <TinyTweaks.QoLChanges.AnimalMedicalAlerts_ToolTip>Alerts will be shown when animals are injured, need rescuing or are in life-threatening condition, akin to colonist medical alerts.</TinyTweaks.QoLChanges.AnimalMedicalAlerts_ToolTip>
-
-    <TinyTweaks.QoLChanges.CaravanFoodRestrictions>Assign food restrictions for caravans</TinyTweaks.QoLChanges.CaravanFoodRestrictions>
-    <TinyTweaks.QoLChanges.CaravanFoodRestrictions_ToolTip>When selecting one of your caravans on the world map and going to the 'Items' tab, there will be an 'assign food restrictions' button next to the 'assign drug policies' button.</TinyTweaks.QoLChanges.CaravanFoodRestrictions_ToolTip>
-
-    <TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings>Automatically assign animals to follow their master</TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings>
-    <TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings_ToolTip>Animals that have been trained in obedience will automatically be assigned to follow their master when drafted or doing fieldwork.</TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings_ToolTip>
-
-    <TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry>Automatically remove finished moisture pumps</TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry>
-    <TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry_ToolTip>Moisture pumps that have finished pumping will be automatically designated to be uninstalled or deconstructed, whichever is appropriate.</TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry_ToolTip>
-
-    <TinyTweaks.QoLChanges.AutoOwl>Automatically set night owl timetables</TinyTweaks.QoLChanges.AutoOwl>
-    <TinyTweaks.QoLChanges.AutoOwl_ToolTip>Newly-generated pawns with the Night Owl trait will automatically have their timetables set so that they sleep during the day.</TinyTweaks.QoLChanges.AutoOwl_ToolTip>
-
-    <TinyTweaks.QoLChanges.MedBedMedicalAlert>Show 'colonist needs treatment' alerts for pawns in medical beds</TinyTweaks.QoLChanges.MedBedMedicalAlert>
-    <TinyTweaks.QoLChanges.MedBedMedicalAlert_ToolTip>If a pawn has injuries or diseases that need tending and they are resting in a medical bed, still show the 'colonist needs treatment' alert for them.</TinyTweaks.QoLChanges.MedBedMedicalAlert_ToolTip>
-
-    <TinyTweaks.QoLChanges.AlphabeticalBillList>Sort workbench bill list alphabetically</TinyTweaks.QoLChanges.AlphabeticalBillList>
-    <TinyTweaks.QoLChanges.AlphabeticalBillList_ToolTip>The drop-down list when clicking the 'Bills' button on any workbench will be sorted alphabetically.</TinyTweaks.QoLChanges.AlphabeticalBillList_ToolTip>
-
-
-    <TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories>Condensed architect menu tabs</TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories>
-    <TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip>Certain architect menu tabs from certain mods will be merged with vanilla architect tabs (e.g. 'Furniture+' from More Furniture merged into 'Furniture'). In some cases, new architect tabs may be added too (e.g. buildings from LWM Deep Storage will get their own 'Storage' tab).</TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip>
-
-    <TinyTweaks.QoLChanges.ChangeDefLabels>Consistent label capitalisation</TinyTweaks.QoLChanges.ChangeDefLabels>
-    <TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip>The labels of things such as items and recipe bills will be use vanilla capitalisation (e.g. White Composite Water Tower => White composite water tower).</TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip>
-
-    <!-- Bug Fixes -->
-
-    <TinyTweaks.BugFixesHeading>Bug Fixes</TinyTweaks.BugFixesHeading>
-
-    <TinyTweaks.BugFixes.MeleeArmourPenetration>Melee armour penetration scaling</TinyTweaks.BugFixes.MeleeArmourPenetration>
-    <TinyTweaks.BugFixes.MeleeArmourPenetration_ToolTip>Preset armour penetration values for melee weapons such as spears will scale with the weapon's quality and stuff it's made out of.</TinyTweaks.BugFixes.MeleeArmourPenetration_ToolTip>
-    
-    <!-- Balance Changes -->
-
-    <TinyTweaks.BalanceChangesHeading>Balance Changes</TinyTweaks.BalanceChangesHeading>
-
-    <TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding>Blood pumping affects bleeding</TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding>
-    <TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding_ToolTip>Pawn bleed rates will be multiplied by their blood pumping capacities.</TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding_ToolTip>
-
-    <TinyTweaks.BalanceChanges.ChangeQualityDistribution>More skill-reliant quality distribution</TinyTweaks.BalanceChanges.ChangeQualityDistribution>
-    <TinyTweaks.BalanceChanges.ChangeQualityDistribution_ToolTip>Skill matters significantly more when producing items that have quality. Quality distribution is also centred around level 6 instead of level 4.</TinyTweaks.BalanceChanges.ChangeQualityDistribution_ToolTip>
-
-    <TinyTweaks.BalanceChanges.DelayedSkillDecay>Delayed skill decay</TinyTweaks.BalanceChanges.DelayedSkillDecay>
-    <TinyTweaks.BalanceChanges.DelayedSkillDecay_ToolTip>8 in-game hours must pass since a pawn last gained at least 2000 experience in a given skill before skill decay kicks in.</TinyTweaks.BalanceChanges.DelayedSkillDecay_ToolTip>
-
-    <!-- Tiny Additions -->
-
-    <TinyTweaks.TinyAdditionsHeading>Tiny Additions</TinyTweaks.TinyAdditionsHeading>
-
-    <TinyTweaks.TinyAdditions.RandomStartingSeason>Random starting season option</TinyTweaks.TinyAdditions.RandomStartingSeason>
-    <TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip>When opening the advanced settings upon generating a new planet, there will also be an option to have a random starting season.</TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip>
+  <TinyTweaks.SettingsCategory>Tiny Tweaks</TinyTweaks.SettingsCategory>
+  <TinyTweaks.NextPage>Next Page</TinyTweaks.NextPage>
+  <TinyTweaks.PreviousPage>Previous Page</TinyTweaks.PreviousPage>
+  <TinyTweaks.Expand>Expand</TinyTweaks.Expand>
+  <TinyTweaks.Collapse>Collapse</TinyTweaks.Collapse>
+  <TinyTweaks.GameRestartNotRequired>Note: Changes made to these settings will be applied instantly - a game restart is not required.</TinyTweaks.GameRestartNotRequired>
+  <TinyTweaks.GameRestartRequired>Note: Game restart required in order for any changes to these settings to take effect.</TinyTweaks.GameRestartRequired>
+  <!-- QoL Changes -->
+  <TinyTweaks.QualityOfLifeChangesHeading>Quality-of-Life Changes</TinyTweaks.QualityOfLifeChangesHeading>
+  <TinyTweaks.QoLChanges.AnimalMedicalAlerts>Animal medical alerts</TinyTweaks.QoLChanges.AnimalMedicalAlerts>
+  <TinyTweaks.QoLChanges.AnimalMedicalAlerts_ToolTip>Alerts will be shown when animals are injured, need rescuing or are in life-threatening condition, akin to colonist medical alerts.</TinyTweaks.QoLChanges.AnimalMedicalAlerts_ToolTip>
+  <TinyTweaks.QoLChanges.CaravanFoodRestrictions>Assign food restrictions for caravans</TinyTweaks.QoLChanges.CaravanFoodRestrictions>
+  <TinyTweaks.QoLChanges.CaravanFoodRestrictions_ToolTip>When selecting one of your caravans on the world map and going to the 'Items' tab, there will be an 'assign food restrictions' button next to the 'assign drug policies' button.</TinyTweaks.QoLChanges.CaravanFoodRestrictions_ToolTip>
+  <TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings>Automatically assign animals to follow their master</TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings>
+  <TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings_ToolTip>Animals that have been trained in obedience will automatically be assigned to follow their master when drafted or doing fieldwork.</TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings_ToolTip>
+  <TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry>Automatically remove finished moisture pumps</TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry>
+  <TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry_ToolTip>Moisture pumps that have finished pumping will be automatically designated to be uninstalled or deconstructed, whichever is appropriate.</TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry_ToolTip>
+  <TinyTweaks.QoLChanges.AutoOwl>Automatically set night owl timetables</TinyTweaks.QoLChanges.AutoOwl>
+  <TinyTweaks.QoLChanges.AutoOwl_ToolTip>Newly-generated pawns with the Night Owl trait will automatically have their timetables set so that they sleep during the day.</TinyTweaks.QoLChanges.AutoOwl_ToolTip>
+  <TinyTweaks.QoLChanges.MedBedMedicalAlert>Show 'colonist needs treatment' alerts for pawns in medical beds</TinyTweaks.QoLChanges.MedBedMedicalAlert>
+  <TinyTweaks.QoLChanges.MedBedMedicalAlert_ToolTip>If a pawn has injuries or diseases that need tending and they are resting in a medical bed, still show the 'colonist needs treatment' alert for them.</TinyTweaks.QoLChanges.MedBedMedicalAlert_ToolTip>
+  <TinyTweaks.QoLChanges.AlphabeticalBillList>Sort workbench bill list alphabetically</TinyTweaks.QoLChanges.AlphabeticalBillList>
+  <TinyTweaks.QoLChanges.AlphabeticalBillList_ToolTip>The drop-down list when clicking the 'Bills' button on any workbench will be sorted alphabetically.</TinyTweaks.QoLChanges.AlphabeticalBillList_ToolTip>
+  <TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories>Condensed architect menu tabs</TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories>
+  <TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip>Certain architect menu tabs from certain mods will be merged with vanilla architect tabs (e.g. 'Furniture+' from More Furniture merged into 'Furniture'). In some cases, new architect tabs may be added too (e.g. buildings from LWM Deep Storage will get their own 'Storage' tab).</TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip>
+  <TinyTweaks.QoLChanges.ChangeDefLabels>Consistent label capitalisation</TinyTweaks.QoLChanges.ChangeDefLabels>
+  <TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip>The labels of things such as items and recipe bills will be use vanilla capitalisation (e.g. White Composite Water Tower =&gt; White composite water tower).</TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip>
+  <!-- Bug Fixes -->
+  <TinyTweaks.BugFixesHeading>Bug Fixes</TinyTweaks.BugFixesHeading>
+  <TinyTweaks.BugFixes.MeleeArmourPenetration>Melee armour penetration scaling</TinyTweaks.BugFixes.MeleeArmourPenetration>
+  <TinyTweaks.BugFixes.MeleeArmourPenetration_ToolTip>Preset armour penetration values for melee weapons such as spears will scale with the weapon's quality and stuff it's made out of.</TinyTweaks.BugFixes.MeleeArmourPenetration_ToolTip>
+  <!-- Balance Changes -->
+  <TinyTweaks.BalanceChangesHeading>Balance Changes</TinyTweaks.BalanceChangesHeading>
+  <TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding>Blood pumping affects bleeding</TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding>
+  <TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding_ToolTip>Pawn bleed rates will be multiplied by their blood pumping capacities.</TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding_ToolTip>
+  <TinyTweaks.BalanceChanges.ChangeQualityDistribution>More skill-reliant quality distribution</TinyTweaks.BalanceChanges.ChangeQualityDistribution>
+  <TinyTweaks.BalanceChanges.ChangeQualityDistribution_ToolTip>Skill matters significantly more when producing items that have quality. Quality distribution is also centred around level 6 instead of level 4.</TinyTweaks.BalanceChanges.ChangeQualityDistribution_ToolTip>
+  <TinyTweaks.BalanceChanges.DelayedSkillDecay>Delayed skill decay</TinyTweaks.BalanceChanges.DelayedSkillDecay>
+  <TinyTweaks.BalanceChanges.DelayedSkillDecay_ToolTip>8 in-game hours must pass since a pawn last gained at least 2000 experience in a given skill before skill decay kicks in.</TinyTweaks.BalanceChanges.DelayedSkillDecay_ToolTip>
+  <!-- Tiny Additions -->
+  <TinyTweaks.TinyAdditionsHeading>Tiny Additions</TinyTweaks.TinyAdditionsHeading>
+  <TinyTweaks.TinyAdditions.RandomStartingSeason>Random starting season option</TinyTweaks.TinyAdditions.RandomStartingSeason>
+  <TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip>When opening the advanced settings upon generating a new planet, there will also be an option to have a random starting season.</TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip>
 
 </LanguageData>

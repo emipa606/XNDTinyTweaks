@@ -16,7 +16,7 @@ namespace TinyTweaks
     {
 
         [HarmonyPatch(typeof(Alert_ColonistNeedsTend), "NeedingColonists", MethodType.Getter)]
-        public static class get_NeedingColonists
+        public static class Get_NeedingColonists
         {
 
             public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
@@ -28,7 +28,7 @@ namespace TinyTweaks
                 var instructionList = instructions.ToList();
 
                 var getMedicalInfo = AccessTools.Property(typeof(Building_Bed), nameof(Building_Bed.Medical)).GetGetMethod();
-                var allowIfMedicalInfo = AccessTools.Method(typeof(get_NeedingColonists), nameof(AllowIfMedical));
+                var allowIfMedicalInfo = AccessTools.Method(typeof(Get_NeedingColonists), nameof(AllowIfMedical));
 
                 for (int i = 0; i < instructionList.Count; i++)
                 {

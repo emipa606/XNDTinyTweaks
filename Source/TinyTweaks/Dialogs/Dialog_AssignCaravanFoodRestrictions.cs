@@ -32,7 +32,7 @@ namespace TinyTweaks
         {
             rect.height -= this.CloseButSize.y;
             float num = 0f;
-            Rect rect2 = new Rect(rect.width - 354f - 16f, num, 354f, 32f);
+            Rect rect2 = new Rect(rect.width - 354f - 16f, num, AssignDrugPolicyButtonsTotalWidth, ManageDrugPoliciesButtonHeight);
             if (Widgets.ButtonText(rect2, "ManageFoodRestrictions".Translate(), true, false, true))
             {
                 Find.WindowStack.Add(new Dialog_ManageFoodRestrictions(null));
@@ -46,11 +46,11 @@ namespace TinyTweaks
             {
                 if (this.caravan.pawns[i].foodRestriction != null)
                 {
-                    if (num2 + 30f >= this.scrollPos.y && num2 <= this.scrollPos.y + outRect.height)
+                    if (num2 + RowHeight >= this.scrollPos.y && num2 <= this.scrollPos.y + outRect.height)
                     {
-                        this.DoRow(new Rect(0f, num2, viewRect.width, 30f), this.caravan.pawns[i]);
+                        this.DoRow(new Rect(0f, num2, viewRect.width, RowHeight), this.caravan.pawns[i]);
                     }
-                    num2 += 30f;
+                    num2 += RowHeight;
                 }
             }
             this.lastHeight = num2;
@@ -59,14 +59,14 @@ namespace TinyTweaks
 
         private void DoRow(Rect rect, Pawn pawn)
         {
-            Rect rect2 = new Rect(rect.x, rect.y, rect.width - 354f, 30f);
+            Rect rect2 = new Rect(rect.x, rect.y, rect.width - AssignDrugPolicyButtonsTotalWidth, RowHeight);
             Text.Anchor = TextAnchor.MiddleLeft;
             Text.WordWrap = false;
             Widgets.Label(rect2, pawn.LabelCap);
             Text.Anchor = TextAnchor.UpperLeft;
             Text.WordWrap = true;
             GUI.color = Color.white;
-            Rect rect3 = new Rect(rect.x + rect.width - 354f, rect.y, 354f, 30f);
+            Rect rect3 = new Rect(rect.x + rect.width - AssignDrugPolicyButtonsTotalWidth, rect.y, AssignDrugPolicyButtonsTotalWidth, RowHeight);
             DoAssignFoodRestrictionButtons(rect3, pawn);
         }
 
@@ -75,21 +75,21 @@ namespace TinyTweaks
             int num = Mathf.FloorToInt((rect.width - 4f) * 0.714285731f);
             int num2 = Mathf.FloorToInt((rect.width - 4f) * 0.2857143f);
             float num3 = rect.x;
-            Rect rect2 = new Rect(num3, rect.y + 2f, (float)num, rect.height - 4f);
+            Rect rect2 = new Rect(num3, rect.y + 2f, num, rect.height - 4f);
             Rect rect3 = rect2;
-            Func<Pawn, FoodRestriction> getPayload = (Pawn p) => p.foodRestriction.CurrentFoodRestriction;
+            FoodRestriction getPayload(Pawn p) => p.foodRestriction.CurrentFoodRestriction;
             Func<Pawn, IEnumerable<Widgets.DropdownMenuElement<FoodRestriction>>> menuGenerator = new Func<Pawn, IEnumerable<Widgets.DropdownMenuElement<FoodRestriction>>>(this.Button_GenerateMenu);
             string buttonLabel = pawn.foodRestriction.CurrentFoodRestriction.label.Truncate(rect2.width, null);
             string label = pawn.foodRestriction.CurrentFoodRestriction.label;
-            Widgets.Dropdown<Pawn, FoodRestriction>(rect3, pawn, getPayload, menuGenerator, buttonLabel, null, label, null, null, true);
-            num3 += (float)num;
+            Widgets.Dropdown(rect3, pawn, getPayload, menuGenerator, buttonLabel, null, label, null, null, true);
+            num3 += num;
             num3 += 4f;
-            Rect rect4 = new Rect(num3, rect.y + 2f, (float)num2, rect.height - 4f);
+            Rect rect4 = new Rect(num3, rect.y + 2f, num2, rect.height - 4f);
             if (Widgets.ButtonText(rect4, "AssignTabEdit".Translate(), true, false, true))
             {
                 Find.WindowStack.Add(new Dialog_ManageFoodRestrictions(pawn.foodRestriction.CurrentFoodRestriction));
             }
-            num3 += (float)num2;
+            num3 += num2;
         }
 
         private IEnumerable<Widgets.DropdownMenuElement<FoodRestriction>> Button_GenerateMenu(Pawn pawn)
@@ -112,7 +112,7 @@ namespace TinyTweaks
             yield break;
         }
 
-        private Caravan caravan;
+        private readonly Caravan caravan;
 
         private Vector2 scrollPos;
 
@@ -122,7 +122,7 @@ namespace TinyTweaks
 
         private const float AssignDrugPolicyButtonsTotalWidth = 354f;
 
-        private const int ManageDrugPoliciesButtonHeight = 32;
+        private const float ManageDrugPoliciesButtonHeight = 32f;
 
     }
 

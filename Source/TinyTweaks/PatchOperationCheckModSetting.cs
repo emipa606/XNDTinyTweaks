@@ -14,8 +14,8 @@ namespace TinyTweaks
     public class PatchOperationCheckModSetting : PatchOperation
     {
 
-        private Type settingsType;
-        private string settingName;
+        private readonly Type settingsType;
+        private readonly string settingName;
 
         protected override bool ApplyWorker(XmlDocument xml)
         {
