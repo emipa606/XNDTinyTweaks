@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Reflection;
-using UnityEngine;
 using Verse;
-using RimWorld;
 using System.Xml;
 
 namespace TinyTweaks
@@ -34,8 +29,10 @@ namespace TinyTweaks
             return (bool)settingInfo.GetValue(null);
         }
 
-        private void LogPatchOperationError(string message) => Log.Error($"Error with PatchOperationCheckModSetting in {sourceFile}: {message}");
-
+        private void LogPatchOperationError(string message)
+        {
+            Log.Error($"Error with PatchOperationCheckModSetting in {sourceFile}: {message}");
+        }
     }
 
 }

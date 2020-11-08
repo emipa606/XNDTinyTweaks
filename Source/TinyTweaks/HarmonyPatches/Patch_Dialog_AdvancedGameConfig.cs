@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Reflection;
 using System.Reflection.Emit;
-using UnityEngine;
 using Verse;
 using RimWorld;
 using HarmonyLib;
@@ -28,7 +24,7 @@ namespace TinyTweaks
 
                 var instructionList = instructions.ToList();
 
-                for (int i = 0; i < instructionList.Count; i++)
+                for (var i = 0; i < instructionList.Count; i++)
                 {
                     var instruction = instructionList[i];
 
@@ -57,7 +53,10 @@ namespace TinyTweaks
                 if (TinyTweaksSettings.randomStartingSeason)
                 {
                     if (listing.ButtonText("Randomize".Translate()))
+                    {
                         Find.GameInitData.startingSeason = (Season)Rand.RangeInclusive((int)Season.Spring, (int)Season.Winter);
+                    }
+
                     listing.Gap(6);
                 }
             }

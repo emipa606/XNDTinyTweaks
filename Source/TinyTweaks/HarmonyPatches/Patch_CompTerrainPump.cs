@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Reflection;
-using System.Reflection.Emit;
-using UnityEngine;
-using Verse;
+﻿using Verse;
 using RimWorld;
 using HarmonyLib;
 
@@ -25,11 +18,13 @@ namespace TinyTweaks
                 if (TinyTweaksSettings.autoRemoveMoisturePumps && __instance is CompTerrainPumpDry)
                 {
                     float progressDays = ___progressTicks / GenDate.TicksPerDay;
-                    float progressPercentage = progressDays / ((CompProperties_TerrainPump)__instance.props).daysToRadius;
+                    var progressPercentage = progressDays / ((CompProperties_TerrainPump)__instance.props).daysToRadius;
                     __state = progressPercentage < 1;
                 }
                 else
+                {
                     __state = false;
+                }
             }
 
             public static void Postfix(CompTerrainPump __instance, int ___progressTicks, ref bool __state)
@@ -38,7 +33,7 @@ namespace TinyTweaks
                 if (__state)
                 {
                     float progressDays = ___progressTicks / GenDate.TicksPerDay;
-                    float progressPercentage = progressDays / ((CompProperties_TerrainPump)__instance.props).daysToRadius;
+                    var progressPercentage = progressDays / ((CompProperties_TerrainPump)__instance.props).daysToRadius;
                     if (progressPercentage >= 1)
                     {
                         var parent = __instance.parent;

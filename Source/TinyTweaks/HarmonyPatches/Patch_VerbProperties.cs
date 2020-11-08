@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Reflection;
 using System.Reflection.Emit;
-using UnityEngine;
 using Verse;
 using RimWorld;
 using HarmonyLib;
@@ -30,7 +27,7 @@ namespace TinyTweaks
                 var armourPenetrationInfo = AccessTools.Field(typeof(Tool), nameof(Tool.armorPenetration));
                 var adjustedToolArmourPenetrationInfo = AccessTools.Method(typeof(AdjustedArmorPenetration), nameof(AdjustedToolArmourPenetration));
 
-                for (int i = 0; i < instructionList.Count; i++)
+                for (var i = 0; i < instructionList.Count; i++)
                 {
                     var instruction = instructionList[i];
 
@@ -61,11 +58,15 @@ namespace TinyTweaks
                 {
                     // Factor in equipment stuff
                     if (equipment != null && equipment.Stuff != null && instance.meleeDamageDef != null)
+                    {
                         armourPenetration *= equipment.Stuff.GetStatValueAbstract(instance.meleeDamageDef.armorCategory.multStat);
+                    }
 
                     // Factor in attacker
                     if (attacker != null)
+                    {
                         armourPenetration *= instance.GetDamageFactorFor(tool, attacker, hediffCompSource);
+                    }
                 }
                 return armourPenetration;
             }

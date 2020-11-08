@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Reflection;
 using System.Reflection.Emit;
-using UnityEngine;
-using Verse;
 using RimWorld;
 using HarmonyLib;
 
@@ -30,7 +25,7 @@ namespace TinyTweaks
                 var getMedicalInfo = AccessTools.Property(typeof(Building_Bed), nameof(Building_Bed.Medical)).GetGetMethod();
                 var allowIfMedicalInfo = AccessTools.Method(typeof(Get_NeedingColonists), nameof(AllowIfMedical));
 
-                for (int i = 0; i < instructionList.Count; i++)
+                for (var i = 0; i < instructionList.Count; i++)
                 {
                     var instruction = instructionList[i];
 
@@ -53,7 +48,9 @@ namespace TinyTweaks
             {
                 // Return false here because this'll satisfy the condition to show the alert
                 if (TinyTweaksSettings.medBedMedicalAlert)
+                {
                     return false;
+                }
 
                 return original;
             }

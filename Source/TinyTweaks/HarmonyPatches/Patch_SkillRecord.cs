@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Reflection;
-using System.Reflection.Emit;
-using UnityEngine;
-using Verse;
+﻿using Verse;
 using RimWorld;
 using HarmonyLib;
 
@@ -23,7 +16,10 @@ namespace TinyTweaks
             {
                 // Delay skill decay
                 if (TinyTweaksSettings.delayedSkillDecay && ___pawn.GetComp<CompSkillRecordCache>() is CompSkillRecordCache cache && !cache.CanDecaySkill(__instance.def))
+                {
                     return false;
+                }
+
                 return true;
             }
 
@@ -40,9 +36,13 @@ namespace TinyTweaks
                 {
                     var skillRecordCache = ___pawn.GetComp<CompSkillRecordCache>();
                     if (skillRecordCache != null)
+                    {
                         skillRecordCache.NotifySubstantialExperienceGainedFor(__instance.def);
+                    }
                     else
+                    {
                         Log.Warning($"{___pawn} has null CompSkillRecordCache (def={___pawn.def.defName})");
+                    }
                 }
             }
 

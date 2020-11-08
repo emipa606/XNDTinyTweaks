@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using Verse;
 using RimWorld;
 
@@ -21,20 +17,27 @@ namespace TinyTweaks
         {
             // Because for some reason, doing this either in Initialize or in the field directly still leaves it as null :V
             if (lastExperienceGainTickForSkillsCache == null)
+            {
                 lastExperienceGainTickForSkillsCache = new Dictionary<SkillDef, int>();
+            }
         }
 
         public void NotifySubstantialExperienceGainedFor(SkillDef skillDef)
         {
             if (lastExperienceGainTickForSkillsCache.ContainsKey(skillDef))
+            {
                 lastExperienceGainTickForSkillsCache[skillDef] = Find.TickManager.TicksGame;
-
+            }
             else
+            {
                 lastExperienceGainTickForSkillsCache.Add(skillDef, Find.TickManager.TicksGame);
+            }
         }
 
-        public bool CanDecaySkill(SkillDef skillDef) => !lastExperienceGainTickForSkillsCache.ContainsKey(skillDef) || Find.TickManager.TicksGame > lastExperienceGainTickForSkillsCache[skillDef] + MinTicksSinceSkillGainForSkillDecay;
-
+        public bool CanDecaySkill(SkillDef skillDef)
+        {
+            return !lastExperienceGainTickForSkillsCache.ContainsKey(skillDef) || Find.TickManager.TicksGame > lastExperienceGainTickForSkillsCache[skillDef] + MinTicksSinceSkillGainForSkillDecay;
+        }
 
         public override void PostExposeData()
         {

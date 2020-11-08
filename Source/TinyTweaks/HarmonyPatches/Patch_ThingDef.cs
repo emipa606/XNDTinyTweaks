@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Reflection;
-using System.Reflection.Emit;
-using UnityEngine;
 using Verse;
-using RimWorld;
 using HarmonyLib;
 
 namespace TinyTweaks
@@ -25,7 +19,10 @@ namespace TinyTweaks
                 if (TinyTweaksSettings.alphabeticalBillList)
                 {
                     if (!TinyTweaksUtility.cachedThingRecipesAlphabetical.ContainsKey(__instance))
+                    {
                         TinyTweaksUtility.cachedThingRecipesAlphabetical.Add(__instance, __result.OrderBy(r => r.label).ToList());
+                    }
+
                     __result = TinyTweaksUtility.cachedThingRecipesAlphabetical[__instance];
                 }
             }

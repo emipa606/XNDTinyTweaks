@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Reflection;
-using System.Reflection.Emit;
-using UnityEngine;
-using Verse;
+﻿using Verse;
 using RimWorld;
 using HarmonyLib;
 
@@ -23,7 +16,9 @@ namespace TinyTweaks
             {
                 // Scale bleeding rate based on blood pumping
                 if (TinyTweaksSettings.bloodPumpingAffectsBleeding)
+                {
                     __result *= __instance.pawn.health.capacities.GetLevel(PawnCapacityDefOf.BloodPumping);
+                }
             }
 
         }

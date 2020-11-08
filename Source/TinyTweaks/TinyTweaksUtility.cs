@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Reflection;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -18,13 +16,16 @@ namespace TinyTweaks
         public static void AddComp(this ThingDef def, Type compType)
         {
             if (def.comps.NullOrEmpty())
+            {
                 def.comps = new List<CompProperties>();
+            }
+
             def.comps.Add(new CompProperties(compType));
         }
 
         public static void CollapsibleSubheading(this Listing_Standard listing, string label, ref bool checkOn)
         {
-            float lineHeight = Text.LineHeight;
+            var lineHeight = Text.LineHeight;
             var rowRect = listing.GetRect(lineHeight);
             var anchor = Text.Anchor;
 
@@ -60,11 +61,20 @@ namespace TinyTweaks
             return pawnList;
         }
 
-        public static bool PlayerColonyAnimal(this Pawn p) => p.Faction == Faction.OfPlayer && p.RaceProps.Animal;
+        public static bool PlayerColonyAnimal(this Pawn p)
+        {
+            return p.Faction == Faction.OfPlayer && p.RaceProps.Animal;
+        }
 
-        public static bool PlayerColonyAnimal_Alive_NoCryptosleep(this Pawn p) => p.PlayerColonyAnimal() && !p.Dead && !p.Suspended;
+        public static bool PlayerColonyAnimal_Alive_NoCryptosleep(this Pawn p)
+        {
+            return p.PlayerColonyAnimal() && !p.Dead && !p.Suspended;
+        }
 
-        public static bool HasBondRelation(this Pawn p) => TrainableUtility.GetAllColonistBondsFor(p).Any();
+        public static bool HasBondRelation(this Pawn p)
+        {
+            return TrainableUtility.GetAllColonistBondsFor(p).Any();
+        }
 
         public static Dictionary<ThingDef, List<RecipeDef>> cachedThingRecipesAlphabetical = new Dictionary<ThingDef, List<RecipeDef>>();
 

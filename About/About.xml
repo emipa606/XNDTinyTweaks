@@ -20,10 +20,14 @@
     <li>brrainz.harmony</li>
     <li>CETeam.CombatExtended</li>
     <li>VanillaExpanded.VFEProduction</li>
+    <li>LWM.DeepStorage</li>
   </loadAfter>
   <description>[img]https://i.imgur.com/WAEzk68.png[/img]
 Update of XeoNovaDans mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2017485672
+
+- Fixed the AutoOwl setting
+- Should no longer clash with LWM Deep Storage
 
 [img]https://i.imgur.com/7Gzt3Rg.png[/img]
 

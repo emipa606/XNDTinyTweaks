@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Reflection;
 using System.Reflection.Emit;
-using UnityEngine;
 using Verse;
 using RimWorld;
 using HarmonyLib;
@@ -26,9 +23,9 @@ namespace TinyTweaks
                 #endif
 
                 var instructionList = instructions.ToList();
-                bool done = false;
+                var done = false;
 
-                for (int i = 0; i < instructionList.Count; i++)
+                for (var i = 0; i < instructionList.Count; i++)
                 {
                     var instruction = instructionList[i];
 

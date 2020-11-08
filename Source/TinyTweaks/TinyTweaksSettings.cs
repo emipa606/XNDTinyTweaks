@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 using Verse;
 using Verse.Sound;
 using RimWorld;
@@ -64,7 +59,7 @@ namespace TinyTweaks
         private void DoHeading(Listing_Standard listing, GameFont font)
         {
             listing.Gap();
-            string headingTranslationKey = "TinyTweaks.";
+            var headingTranslationKey = "TinyTweaks.";
             switch(PageIndex)
             {
                 case QoLPageIndex:
@@ -137,9 +132,12 @@ namespace TinyTweaks
             options.GapLine(24);
             GameRestartRequired(options);
 
-            // Change architect menu tabs
-            options.Gap();
-            options.CheckboxLabeled("TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories".Translate(), ref changeBuildableDefDesignationCategories, "TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip".Translate());
+            if (ModLister.GetActiveModWithIdentifier("LWM.DeepStorage") == null)
+            {
+                // Change architect menu tabs
+                options.Gap();
+                options.CheckboxLabeled("TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories".Translate(), ref changeBuildableDefDesignationCategories, "TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip".Translate());
+            }
 
             // Consistent label casing
             options.Gap();
@@ -186,8 +184,8 @@ namespace TinyTweaks
 
         private void DoPageButtons(Rect wrect)
         {
-            float halfRectWidth = wrect.width / 2;
-            float xOffset = (halfRectWidth - PageButtonWidth) / 2;
+            var halfRectWidth = wrect.width / 2;
+            var xOffset = (halfRectWidth - PageButtonWidth) / 2;
             var leftButtonRect = new Rect(xOffset + PageButtonPosOffsetFromCentre, wrect.height - PageButtonHeight, PageButtonWidth, PageButtonHeight);
             if (Widgets.ButtonText(leftButtonRect, "TinyTweaks.PreviousPage".Translate()))
             {
@@ -221,16 +219,21 @@ namespace TinyTweaks
 
             #region DoContents
             if (PageIndex == QoLPageIndex)
+            {
                 DoQualityOfLifeChanges(options);
-
+            }
             else if (PageIndex == BugFixPageIndex)
+            {
                 DoBugFixes(options);
-
+            }
             else if (PageIndex == BalancePageIndex)
+            {
                 DoBalanceChanges(options);
-
+            }
             else if (PageIndex == AdditionsPageIndex)
+            {
                 DoAdditions(options);
+            }
             #endregion
 
             DoPageButtons(wrect);

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using Verse;
 using RimWorld;
 
@@ -28,7 +24,9 @@ namespace TinyTweaks
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             foreach (var gizmo in base.CompGetGizmosExtra())
+            {
                 yield return gizmo;
+            }
 
             // Automatic rebuild
             if (CanToggleAutoRebuild)
