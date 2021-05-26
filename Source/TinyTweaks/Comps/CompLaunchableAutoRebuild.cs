@@ -1,19 +1,18 @@
 ﻿using System.Collections.Generic;
-using Verse;
 using RimWorld;
+using Verse;
 
 namespace TinyTweaks
 {
-
     public class CompLaunchableAutoRebuild : ThingComp
     {
-
         public const string AutoRebuildSignal = "TT_ParentLaunched";
 
         private bool autoRebuild;
         private Map previousMap;
 
-        private bool CanToggleAutoRebuild => parent.Faction == Faction.OfPlayer && parent.def.blueprintDef != null && parent.def.IsResearchFinished;
+        private bool CanToggleAutoRebuild => parent.Faction == Faction.OfPlayer && parent.def.blueprintDef != null &&
+                                             parent.def.IsResearchFinished;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
@@ -52,7 +51,8 @@ namespace TinyTweaks
         {
             if (signal == AutoRebuildSignal && autoRebuild)
             {
-                GenConstruct.PlaceBlueprintForBuild(parent.def, parent.Position, previousMap, parent.Rotation, Faction.OfPlayer, parent.Stuff);
+                GenConstruct.PlaceBlueprintForBuild(parent.def, parent.Position, previousMap, parent.Rotation,
+                    Faction.OfPlayer, parent.Stuff);
             }
 
             base.ReceiveCompSignal(signal);
@@ -63,7 +63,5 @@ namespace TinyTweaks
             base.PostExposeData();
             Scribe_Values.Look(ref autoRebuild, "autoRebuild");
         }
-
     }
-
 }

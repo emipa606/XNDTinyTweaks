@@ -4,10 +4,10 @@ using Verse;
 
 namespace TinyTweaks
 {
-
     [StaticConstructorOnStartup]
     public static class ModCompatibilityCheck
     {
+        public static bool DubsBadHygiene;
 
         static ModCompatibilityCheck()
         {
@@ -23,9 +23,5 @@ namespace TinyTweaks
                 }
             }
         }
-
-        public static bool DubsBadHygiene;
-
     }
-
 }

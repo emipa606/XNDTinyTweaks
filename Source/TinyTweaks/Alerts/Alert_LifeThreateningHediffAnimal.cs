@@ -1,36 +1,37 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-using Verse;
 using RimWorld;
+using Verse;
 
 namespace TinyTweaks
 {
     public class Alert_LifeThreateningHediffAnimal : Alert_Critical
     {
-
         private List<Pawn> SickAnimals
         {
             get
             {
                 var pawns = PawnsFinder.AllMaps_Spawned;
                 var result = new List<Pawn>();
-                for (var i = 0; i < pawns.Count; i++)
+                foreach (var p in pawns)
                 {
-                    var p = pawns[i];
-                    if (p.PlayerColonyAnimal_Alive_NoCryptosleep())
+                    if (!p.PlayerColonyAnimal_Alive_NoCryptosleep())
                     {
-                        for (var j = 0; j < p.health.hediffSet.hediffs.Count; j++)
+                        continue;
+                    }
+
+                    foreach (var diff in p.health.hediffSet.hediffs)
+                    {
+                        if (diff.CurStage == null || !diff.CurStage.lifeThreatening || diff.FullyImmune())
                         {
-                            Hediff diff = p.health.hediffSet.hediffs[j];
-                            if (diff.CurStage != null && diff.CurStage.lifeThreatening && !diff.FullyImmune())
-                            {
-                                result.Add(p);
-                                break;
-                            }
+                            continue;
                         }
 
+                        result.Add(p);
+                        break;
                     }
                 }
+
                 return result;
             }
         }
@@ -45,9 +46,8 @@ namespace TinyTweaks
             var stringBuilder = new StringBuilder();
             var amputatable = false;
             var sortedAnimals = TinyTweaksUtility.SortedAnimalList(SickAnimals);
-            for (var i = 0; i < sortedAnimals.Count; i++)
+            foreach (var pawn in sortedAnimals)
             {
-                var pawn = sortedAnimals[i];
                 var listEntry = pawn.NameShortColored.CapitalizeFirst();
                 if (pawn.HasBondRelation())
                 {
@@ -56,22 +56,26 @@ namespace TinyTweaks
 
                 stringBuilder.AppendLine("  - " + listEntry.Resolve());
                 var hediffs = pawn.health.hediffSet.hediffs;
-                for (var j = 0; j < hediffs.Count; j++)
+                foreach (var hediff in hediffs)
                 {
-                    var hediff = hediffs[j];
-                    if (hediff.CurStage != null && hediff.CurStage.lifeThreatening && hediff.Part != null && hediff.Part != pawn.RaceProps.body.corePart)
+                    if (hediff.CurStage == null || !hediff.CurStage.lifeThreatening || hediff.Part == null ||
+                        hediff.Part == pawn.RaceProps.body.corePart)
                     {
-                        amputatable = true;
-                        break;
+                        continue;
                     }
+
+                    amputatable = true;
+                    break;
                 }
             }
+
             if (amputatable)
             {
-                return string.Format("TinyTweaks.AnimalsWithLifeThreateningDiseaseAmputation_Desc".Translate(), stringBuilder.ToString());
+                return string.Format("TinyTweaks.AnimalsWithLifeThreateningDiseaseAmputation_Desc".Translate(),
+                    stringBuilder);
             }
 
-            return string.Format("TinyTweaks.AnimalsWithLifeThreateningDisease_Desc".Translate(), stringBuilder.ToString());
+            return string.Format("TinyTweaks.AnimalsWithLifeThreateningDisease_Desc".Translate(), stringBuilder);
         }
 
         public override AlertReport GetReport()
@@ -83,6 +87,5 @@ namespace TinyTweaks
 
             return AlertReport.CulpritsAre(SickAnimals);
         }
-
     }
 }

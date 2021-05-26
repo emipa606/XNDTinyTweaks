@@ -1,15 +1,12 @@
-﻿using UnityEngine;
+﻿using RimWorld;
+using UnityEngine;
 using Verse;
 using Verse.Sound;
-using RimWorld;
 
 namespace TinyTweaks
 {
-
     public class TinyTweaksSettings : ModSettings
     {
-
-        #region Consts and Fields
         private const float PageButtonWidth = 150;
         private const float PageButtonHeight = 35;
         private const float PageButtonPosOffsetFromCentre = 60;
@@ -20,15 +17,11 @@ namespace TinyTweaks
         private const int AdditionsPageIndex = 4;
 
         private const int MaxPageIndex = AdditionsPageIndex;
-        private static int _pageIndex = 1;
-        private static int PageIndex
-        {
-            get => _pageIndex;
-            set => _pageIndex = Mathf.Clamp(value, 1, MaxPageIndex);
-        }
-        #endregion
+        public static bool meleeArmourPenetrationFix = true;
 
-        #region QoL Changes
+        public static bool randomStartingSeason = true;
+        private static int _pageIndex = 1;
+
         public static bool animalMedicalAlerts = true;
         public static bool caravanFoodRestrictions = true;
         public static bool autoAssignAnimalFollowSettings = true;
@@ -40,27 +33,22 @@ namespace TinyTweaks
         // Restart
         public static bool changeDefLabels = true;
         public static bool changeBuildableDefDesignationCategories = true;
-        #endregion
 
-        #region Bug Fixes
-        public static bool meleeArmourPenetrationFix = true;
-        #endregion
+        public static bool changeQualityDistribution;
+        public static bool bloodPumpingAffectsBleeding;
+        public static bool delayedSkillDecay;
 
-        #region Balance Changes
-        public static bool changeQualityDistribution = false;
-        public static bool bloodPumpingAffectsBleeding = false;
-        public static bool delayedSkillDecay = false;
-        #endregion
-
-        #region Tiny Additions
-        public static bool randomStartingSeason = true;
-        #endregion
+        private static int PageIndex
+        {
+            get => _pageIndex;
+            set => _pageIndex = Mathf.Clamp(value, 1, MaxPageIndex);
+        }
 
         private void DoHeading(Listing_Standard listing, GameFont font)
         {
             listing.Gap();
             var headingTranslationKey = "TinyTweaks.";
-            switch(PageIndex)
+            switch (PageIndex)
             {
                 case QoLPageIndex:
                     headingTranslationKey += "QualityOfLifeChangesHeading";
@@ -75,6 +63,7 @@ namespace TinyTweaks
                     headingTranslationKey += "TinyAdditionsHeading";
                     goto WriteHeader;
             }
+
             WriteHeader:
             Text.Font = font + 1;
             listing.Label(headingTranslationKey.Translate());
@@ -101,31 +90,39 @@ namespace TinyTweaks
 
             // Animal medical alerts
             options.Gap();
-            options.CheckboxLabeled("TinyTweaks.QoLChanges.AnimalMedicalAlerts".Translate(), ref animalMedicalAlerts, "TinyTweaks.QoLChanges.AnimalMedicalAlerts_ToolTip".Translate());
+            options.CheckboxLabeled("TinyTweaks.QoLChanges.AnimalMedicalAlerts".Translate(), ref animalMedicalAlerts,
+                "TinyTweaks.QoLChanges.AnimalMedicalAlerts_ToolTip".Translate());
 
             // Assign food restrictions for caravans
             options.Gap();
-            options.CheckboxLabeled("TinyTweaks.QoLChanges.CaravanFoodRestrictions".Translate(), ref caravanFoodRestrictions, "TinyTweaks.QoLChanges.CaravanFoodRestrictions_ToolTip".Translate());
+            options.CheckboxLabeled("TinyTweaks.QoLChanges.CaravanFoodRestrictions".Translate(),
+                ref caravanFoodRestrictions, "TinyTweaks.QoLChanges.CaravanFoodRestrictions_ToolTip".Translate());
 
             // Automatically assign animals to follow their master
             options.Gap();
-            options.CheckboxLabeled("TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings".Translate(), ref autoAssignAnimalFollowSettings, "TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings_ToolTip".Translate());
+            options.CheckboxLabeled("TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings".Translate(),
+                ref autoAssignAnimalFollowSettings,
+                "TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings_ToolTip".Translate());
 
             // Automatically remove finished moisture pumps
             options.Gap();
-            options.CheckboxLabeled("TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry".Translate(), ref autoRemoveMoisturePumps, "TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry_ToolTip".Translate());
+            options.CheckboxLabeled("TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry".Translate(),
+                ref autoRemoveMoisturePumps, "TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry_ToolTip".Translate());
 
             // Automatically set night owl timetables
             options.Gap();
-            options.CheckboxLabeled("TinyTweaks.QoLChanges.AutoOwl".Translate(), ref autoOwl, "TinyTweaks.QoLChanges.AutoOwl_ToolTip".Translate());
+            options.CheckboxLabeled("TinyTweaks.QoLChanges.AutoOwl".Translate(), ref autoOwl,
+                "TinyTweaks.QoLChanges.AutoOwl_ToolTip".Translate());
 
             // Show 'colonist needs treatment' alerts for pawns in medical beds
             options.Gap();
-            options.CheckboxLabeled("TinyTweaks.QoLChanges.MedBedMedicalAlert".Translate(), ref medBedMedicalAlert, "TinyTweaks.QoLChanges.MedBedMedicalAlert_ToolTip".Translate());
+            options.CheckboxLabeled("TinyTweaks.QoLChanges.MedBedMedicalAlert".Translate(), ref medBedMedicalAlert,
+                "TinyTweaks.QoLChanges.MedBedMedicalAlert_ToolTip".Translate());
 
             // Sort workbench bill list alphabetically
             options.Gap();
-            options.CheckboxLabeled("TinyTweaks.QoLChanges.AlphabeticalBillList".Translate(), ref alphabeticalBillList, "TinyTweaks.QoLChanges.AlphabeticalBillList_ToolTip".Translate());
+            options.CheckboxLabeled("TinyTweaks.QoLChanges.AlphabeticalBillList".Translate(), ref alphabeticalBillList,
+                "TinyTweaks.QoLChanges.AlphabeticalBillList_ToolTip".Translate());
 
 
             // 'Game restart required' note
@@ -136,12 +133,15 @@ namespace TinyTweaks
             {
                 // Change architect menu tabs
                 options.Gap();
-                options.CheckboxLabeled("TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories".Translate(), ref changeBuildableDefDesignationCategories, "TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip".Translate());
+                options.CheckboxLabeled("TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories".Translate(),
+                    ref changeBuildableDefDesignationCategories,
+                    "TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip".Translate());
             }
 
             // Consistent label casing
             options.Gap();
-            options.CheckboxLabeled("TinyTweaks.QoLChanges.ChangeDefLabels".Translate(), ref changeDefLabels, "TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip".Translate());
+            options.CheckboxLabeled("TinyTweaks.QoLChanges.ChangeDefLabels".Translate(), ref changeDefLabels,
+                "TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip".Translate());
         }
 
         private void DoBugFixes(Listing_Standard options)
@@ -151,7 +151,8 @@ namespace TinyTweaks
 
             // Melee weapon AP fix
             options.Gap();
-            options.CheckboxLabeled("TinyTweaks.BugFixes.MeleeArmourPenetration".Translate(), ref meleeArmourPenetrationFix, "TinyTweaks.BugFixes.MeleeArmourPenetration_ToolTip".Translate());
+            options.CheckboxLabeled("TinyTweaks.BugFixes.MeleeArmourPenetration".Translate(),
+                ref meleeArmourPenetrationFix, "TinyTweaks.BugFixes.MeleeArmourPenetration_ToolTip".Translate());
         }
 
         private void DoBalanceChanges(Listing_Standard options)
@@ -161,15 +162,20 @@ namespace TinyTweaks
 
             // Blood pumping affects bleeding
             options.Gap();
-            options.CheckboxLabeled("TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding".Translate(), ref bloodPumpingAffectsBleeding, "TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding_ToolTip".Translate());
+            options.CheckboxLabeled("TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding".Translate(),
+                ref bloodPumpingAffectsBleeding,
+                "TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding_ToolTip".Translate());
 
             // Change quality distribution
             options.Gap();
-            options.CheckboxLabeled("TinyTweaks.BalanceChanges.ChangeQualityDistribution".Translate(), ref changeQualityDistribution, "TinyTweaks.BalanceChanges.ChangeQualityDistribution_ToolTip".Translate());
+            options.CheckboxLabeled("TinyTweaks.BalanceChanges.ChangeQualityDistribution".Translate(),
+                ref changeQualityDistribution,
+                "TinyTweaks.BalanceChanges.ChangeQualityDistribution_ToolTip".Translate());
 
             // Delayed skill decay
             options.Gap();
-            options.CheckboxLabeled("TinyTweaks.BalanceChanges.DelayedSkillDecay".Translate(), ref delayedSkillDecay, "TinyTweaks.BalanceChanges.DelayedSkillDecay_ToolTip".Translate());
+            options.CheckboxLabeled("TinyTweaks.BalanceChanges.DelayedSkillDecay".Translate(), ref delayedSkillDecay,
+                "TinyTweaks.BalanceChanges.DelayedSkillDecay_ToolTip".Translate());
         }
 
         private void DoAdditions(Listing_Standard options)
@@ -179,21 +185,25 @@ namespace TinyTweaks
 
             // Random season button
             options.Gap();
-            options.CheckboxLabeled("TinyTweaks.TinyAdditions.RandomStartingSeason".Translate(), ref randomStartingSeason, "TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip".Translate());
+            options.CheckboxLabeled("TinyTweaks.TinyAdditions.RandomStartingSeason".Translate(),
+                ref randomStartingSeason, "TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip".Translate());
         }
 
         private void DoPageButtons(Rect wrect)
         {
             var halfRectWidth = wrect.width / 2;
             var xOffset = (halfRectWidth - PageButtonWidth) / 2;
-            var leftButtonRect = new Rect(xOffset + PageButtonPosOffsetFromCentre, wrect.height - PageButtonHeight, PageButtonWidth, PageButtonHeight);
+            var leftButtonRect = new Rect(xOffset + PageButtonPosOffsetFromCentre, wrect.height - PageButtonHeight,
+                PageButtonWidth, PageButtonHeight);
             if (Widgets.ButtonText(leftButtonRect, "TinyTweaks.PreviousPage".Translate()))
             {
                 SoundDefOf.Click.PlayOneShot(null);
                 PageIndex--;
             }
 
-            var rightButtonRect = new Rect(halfRectWidth + xOffset - PageButtonPosOffsetFromCentre, wrect.height - PageButtonHeight, PageButtonWidth, PageButtonHeight); ;
+            var rightButtonRect = new Rect(halfRectWidth + xOffset - PageButtonPosOffsetFromCentre,
+                wrect.height - PageButtonHeight, PageButtonWidth, PageButtonHeight);
+
             if (Widgets.ButtonText(rightButtonRect, "TinyTweaks.NextPage".Translate()))
             {
                 SoundDefOf.Click.PlayOneShot(null);
@@ -217,7 +227,6 @@ namespace TinyTweaks
 
             DoHeading(options, Text.Font);
 
-            #region DoContents
             if (PageIndex == QoLPageIndex)
             {
                 DoQualityOfLifeChanges(options);
@@ -234,19 +243,16 @@ namespace TinyTweaks
             {
                 DoAdditions(options);
             }
-            #endregion
 
             DoPageButtons(wrect);
 
             // Finish
             options.End();
             Mod.GetSettings<TinyTweaksSettings>().Write();
-
         }
 
         public override void ExposeData()
         {
-            #region QoL Changes
             Scribe_Values.Look(ref animalMedicalAlerts, "animalMedicalAlerts", true);
             Scribe_Values.Look(ref caravanFoodRestrictions, "caravanFoodRestrictions", true);
             Scribe_Values.Look(ref autoAssignAnimalFollowSettings, "autoAssignAnimalFollowSettings", true);
@@ -257,24 +263,16 @@ namespace TinyTweaks
 
             // Restart
             Scribe_Values.Look(ref changeDefLabels, "changeDefLabels", true);
-            Scribe_Values.Look(ref changeBuildableDefDesignationCategories, "changeBuildableDefDesignationCategories", true);
-            #endregion
+            Scribe_Values.Look(ref changeBuildableDefDesignationCategories, "changeBuildableDefDesignationCategories",
+                true);
 
-            #region Bug Fixes
             Scribe_Values.Look(ref meleeArmourPenetrationFix, "meleeArmourPenetrationFix", true);
-            #endregion
 
-            #region Balance Changes
-            Scribe_Values.Look(ref changeQualityDistribution, "changeQualityDistribution", false);
-            Scribe_Values.Look(ref bloodPumpingAffectsBleeding, "bloodPumpingAffectsBleeding", false);
-            Scribe_Values.Look(ref delayedSkillDecay, "delayedSkillDecay", false);
-            #endregion
+            Scribe_Values.Look(ref changeQualityDistribution, "changeQualityDistribution");
+            Scribe_Values.Look(ref bloodPumpingAffectsBleeding, "bloodPumpingAffectsBleeding");
+            Scribe_Values.Look(ref delayedSkillDecay, "delayedSkillDecay");
 
-            #region Tiny Additions
             Scribe_Values.Look(ref randomStartingSeason, "randomStartingSeason", true);
-            #endregion
         }
-
     }
-
 }

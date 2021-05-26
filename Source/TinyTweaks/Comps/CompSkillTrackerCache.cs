@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using Verse;
 using RimWorld;
+using Verse;
 
 namespace TinyTweaks
 {
-
     public class CompSkillRecordCache : ThingComp
     {
         public const int MinExpToDelaySkillDecay = SkillRecord.MaxFullRateXpPerDay / 2;
@@ -36,15 +35,15 @@ namespace TinyTweaks
 
         public bool CanDecaySkill(SkillDef skillDef)
         {
-            return !lastExperienceGainTickForSkillsCache.ContainsKey(skillDef) || Find.TickManager.TicksGame > lastExperienceGainTickForSkillsCache[skillDef] + MinTicksSinceSkillGainForSkillDecay;
+            return !lastExperienceGainTickForSkillsCache.ContainsKey(skillDef) || Find.TickManager.TicksGame >
+                lastExperienceGainTickForSkillsCache[skillDef] + MinTicksSinceSkillGainForSkillDecay;
         }
 
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_Collections.Look(ref lastExperienceGainTickForSkillsCache, "lastExperienceGainTickForSkillsCache", LookMode.Def, LookMode.Value);
+            Scribe_Collections.Look(ref lastExperienceGainTickForSkillsCache, "lastExperienceGainTickForSkillsCache",
+                LookMode.Def, LookMode.Value);
         }
-
     }
-
 }

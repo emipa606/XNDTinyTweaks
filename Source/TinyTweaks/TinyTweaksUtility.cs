@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
-using RimWorld;
 
 namespace TinyTweaks
 {
-
     [StaticConstructorOnStartup]
     public static class TinyTweaksUtility
     {
+        public static Dictionary<ThingDef, List<RecipeDef>> cachedThingRecipesAlphabetical =
+            new Dictionary<ThingDef, List<RecipeDef>>();
 
         public static void AddComp(this ThingDef def, Type compType)
         {
@@ -40,13 +41,13 @@ namespace TinyTweaks
                 checkOn = !checkOn;
             }
 
-            Text.Anchor = anchor;   
+            Text.Anchor = anchor;
             listing.Gap(listing.verticalSpacing);
         }
 
         public static IEnumerable<T> Split<T>(this IEnumerable<T> sequence, Predicate<T> validator)
         {
-            foreach (T obj in sequence)
+            foreach (var obj in sequence)
             {
                 if (validator(obj))
                 {
@@ -75,9 +76,5 @@ namespace TinyTweaks
         {
             return TrainableUtility.GetAllColonistBondsFor(p).Any();
         }
-
-        public static Dictionary<ThingDef, List<RecipeDef>> cachedThingRecipesAlphabetical = new Dictionary<ThingDef, List<RecipeDef>>();
-
     }
-
 }

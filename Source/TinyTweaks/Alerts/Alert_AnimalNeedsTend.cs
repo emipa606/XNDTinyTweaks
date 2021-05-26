@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-using Verse;
 using RimWorld;
+using Verse;
 
 namespace TinyTweaks
 {
     public class Alert_AnimalNeedsTend : Alert
     {
-
         public Alert_AnimalNeedsTend()
         {
             defaultLabel = "TinyTweaks.AnimalNeedsTreatment".Translate();
@@ -20,21 +19,25 @@ namespace TinyTweaks
             {
                 var pawns = PawnsFinder.AllMaps_Spawned;
                 var result = new List<Pawn>();
-                for (var i = 0; i < pawns.Count; i++)
+                foreach (var p in pawns)
                 {
-                    var p = pawns[i];
-                    if (p.PlayerColonyAnimal() && p.health.HasHediffsNeedingTendByPlayer(true))
+                    if (!p.PlayerColonyAnimal() || !p.health.HasHediffsNeedingTendByPlayer(true))
                     {
-                        Building_Bed curBed = p.CurrentBed();
-                        if (curBed == null || TinyTweaksSettings.medBedMedicalAlert || !curBed.Medical)
-                        {
-                            if (!Alert_ColonistNeedsRescuing.NeedsRescue(p))
-                            {
-                                result.Add(p);
-                            }
-                        }
+                        continue;
+                    }
+
+                    var curBed = p.CurrentBed();
+                    if (curBed != null && !TinyTweaksSettings.medBedMedicalAlert && curBed.Medical)
+                    {
+                        continue;
+                    }
+
+                    if (!Alert_ColonistNeedsRescuing.NeedsRescue(p))
+                    {
+                        result.Add(p);
                     }
                 }
+
                 return result;
             }
         }
@@ -53,9 +56,8 @@ namespace TinyTweaks
         {
             var stringBuilder = new StringBuilder();
             var sortedAnimals = TinyTweaksUtility.SortedAnimalList(NeedingAnimals);
-            for (var i = 0; i < sortedAnimals.Count; i++)
+            foreach (var pawn in sortedAnimals)
             {
-                var pawn = sortedAnimals[i];
                 var listEntry = pawn.NameShortColored.CapitalizeFirst();
                 if (pawn.HasBondRelation())
                 {
@@ -64,7 +66,8 @@ namespace TinyTweaks
 
                 stringBuilder.AppendLine("  - " + listEntry.Resolve());
             }
-            return string.Format("TinyTweaks.AnimalNeedsTreatment_Desc".Translate(), stringBuilder.ToString());
+
+            return string.Format("TinyTweaks.AnimalNeedsTreatment_Desc".Translate(), stringBuilder);
         }
 
         public override AlertReport GetReport()
@@ -76,6 +79,5 @@ namespace TinyTweaks
 
             return AlertReport.CulpritsAre(NeedingAnimals);
         }
-
     }
 }

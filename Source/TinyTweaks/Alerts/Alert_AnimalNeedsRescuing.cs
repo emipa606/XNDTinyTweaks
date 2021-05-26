@@ -1,27 +1,26 @@
 ﻿using System.Collections.Generic;
 using System.Text;
-using Verse;
 using RimWorld;
+using Verse;
 
 namespace TinyTweaks
 {
     public class Alert_AnimalNeedsRescuing : Alert_Critical
     {
-
         private List<Pawn> AnimalsNeedingRescue
         {
             get
             {
                 var pawns = PawnsFinder.AllMaps_Spawned;
                 var result = new List<Pawn>();
-                for (var i = 0; i < pawns.Count; i++)
+                foreach (var p in pawns)
                 {
-                    var p = pawns[i];
                     if (p.PlayerColonyAnimal() && Alert_ColonistNeedsRescuing.NeedsRescue(p))
                     {
                         result.Add(p);
                     }
                 }
+
                 return result;
             }
         }
@@ -40,9 +39,8 @@ namespace TinyTweaks
         {
             var stringBuilder = new StringBuilder();
             var sortedAnimals = TinyTweaksUtility.SortedAnimalList(AnimalsNeedingRescue);
-            for (var i = 0; i < sortedAnimals.Count; i++)
+            foreach (var pawn in sortedAnimals)
             {
-                var pawn = sortedAnimals[i];
                 var listEntry = pawn.NameShortColored.CapitalizeFirst();
                 if (pawn.HasBondRelation())
                 {
@@ -51,7 +49,8 @@ namespace TinyTweaks
 
                 stringBuilder.AppendLine("  - " + listEntry.Resolve());
             }
-            return string.Format("TinyTweaks.AnimalsNeedRescue_Desc".Translate(), stringBuilder.ToString());
+
+            return string.Format("TinyTweaks.AnimalsNeedRescue_Desc".Translate(), stringBuilder);
         }
 
         public override AlertReport GetReport()
@@ -63,6 +62,5 @@ namespace TinyTweaks
 
             return AlertReport.CulpritsAre(AnimalsNeedingRescue);
         }
-
     }
 }

@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Verse;
 using RimWorld;
+using Verse;
 
 namespace TinyTweaks
 {
-
     [StaticConstructorOnStartup]
     public static class StartupPatches
     {
-
         static StartupPatches()
         {
             if (TinyTweaksSettings.changeDefLabels)
@@ -19,7 +17,8 @@ namespace TinyTweaks
                 ChangeDefLabels();
             }
 
-            if (ModLister.GetActiveModWithIdentifier("LWM.DeepStorage") == null && TinyTweaksSettings.changeBuildableDefDesignationCategories)
+            if (ModLister.GetActiveModWithIdentifier("LWM.DeepStorage") == null &&
+                TinyTweaksSettings.changeBuildableDefDesignationCategories)
             {
                 UpdateDesignationCategories();
             }
@@ -28,13 +27,37 @@ namespace TinyTweaks
             PatchThingDefs();
         }
 
+        private static IEnumerable<DesignationCategoryDef> CategoriesToRemove
+        {
+            get
+            {
+                if (DesignationCategoryDefOf.ANON2MF != null)
+                {
+                    yield return DesignationCategoryDefOf.ANON2MF;
+                }
+
+                if (DesignationCategoryDefOf.MoreFloors != null)
+                {
+                    yield return DesignationCategoryDefOf.MoreFloors;
+                }
+
+                if (DesignationCategoryDefOf.HygieneMisc != null)
+                {
+                    yield return DesignationCategoryDefOf.HygieneMisc;
+                }
+
+                if (DesignationCategoryDefOf.DefensesExpanded_CustomCategory != null)
+                {
+                    yield return DesignationCategoryDefOf.DefensesExpanded_CustomCategory;
+                }
+            }
+        }
+
         private static void PatchThingDefs()
         {
             var allThingDefs = DefDatabase<ThingDef>.AllDefsListForReading;
-            for (var i = 0; i < allThingDefs.Count; i++)
+            foreach (var tDef in allThingDefs)
             {
-                var tDef = allThingDefs[i];
-
                 // If the def has CompLaunchable, add CompLaunchableAutoRebuild to it
                 if (tDef.HasComp(typeof(CompLaunchable)))
                 {
@@ -63,10 +86,12 @@ namespace TinyTweaks
             // Update all appropriate categories
             if (CategoriesToRemove.Any())
             {
-                var defDatabaseRemove = typeof(DefDatabase<DesignationCategoryDef>).GetMethod("Remove", BindingFlags.NonPublic | BindingFlags.Static);
+                var defDatabaseRemove =
+                    typeof(DefDatabase<DesignationCategoryDef>).GetMethod("Remove",
+                        BindingFlags.NonPublic | BindingFlags.Static);
                 foreach (var dcDef in CategoriesToRemove)
                 {
-                    defDatabaseRemove.Invoke(null, new object[] { dcDef });
+                    defDatabaseRemove?.Invoke(null, new object[] {dcDef});
                 }
             }
 
@@ -100,13 +125,15 @@ namespace TinyTweaks
             var mod = bDef.modContentPack;
 
             // Furniture+ => Furniture
-            if (DesignationCategoryDefOf.ANON2MF != null && bDef.designationCategory == DesignationCategoryDefOf.ANON2MF)
+            if (DesignationCategoryDefOf.ANON2MF != null &&
+                bDef.designationCategory == DesignationCategoryDefOf.ANON2MF)
             {
                 bDef.designationCategory = DesignationCategoryDefOf.Furniture;
             }
 
             // More Floors => Floors
-            if (DesignationCategoryDefOf.MoreFloors != null && bDef.designationCategory == DesignationCategoryDefOf.MoreFloors)
+            if (DesignationCategoryDefOf.MoreFloors != null &&
+                bDef.designationCategory == DesignationCategoryDefOf.MoreFloors)
             {
                 bDef.designationCategory = DesignationCategoryDefOf.Floors;
             }
@@ -117,7 +144,9 @@ namespace TinyTweaks
                 if (mod.PackageId.Equals("Dubwise.DubsBadHygiene", StringComparison.CurrentCultureIgnoreCase))
                 {
                     // Temperature stuff gets moved to Temperature category
-                    if (bDef.researchPrerequisites != null && bDef.researchPrerequisites.Any(r => r.defName == "CentralHeating" || r.defName == "PoweredHeating" || r.defName == "MultiSplitAirCon"))
+                    if (bDef.researchPrerequisites != null && bDef.researchPrerequisites.Any(r =>
+                        r.defName == "CentralHeating" || r.defName == "PoweredHeating" ||
+                        r.defName == "MultiSplitAirCon"))
                     {
                         bDef.designationCategory = DesignationCategoryDefOf.Temperature;
                     }
@@ -137,74 +166,56 @@ namespace TinyTweaks
             }
 
             // Defenses => Security
-            if (DesignationCategoryDefOf.DefensesExpanded_CustomCategory != null && bDef.designationCategory == DesignationCategoryDefOf.DefensesExpanded_CustomCategory)
+            if (DesignationCategoryDefOf.DefensesExpanded_CustomCategory != null && bDef.designationCategory ==
+                DesignationCategoryDefOf.DefensesExpanded_CustomCategory)
             {
                 bDef.designationCategory = RimWorld.DesignationCategoryDefOf.Security;
-            }
-        }
-
-        private static IEnumerable<DesignationCategoryDef> CategoriesToRemove
-        {
-            get
-            {
-                if (DesignationCategoryDefOf.ANON2MF != null)
-                {
-                    yield return DesignationCategoryDefOf.ANON2MF;
-                }
-
-                if (DesignationCategoryDefOf.MoreFloors != null)
-                {
-                    yield return DesignationCategoryDefOf.MoreFloors;
-                }
-
-                if (DesignationCategoryDefOf.HygieneMisc != null)
-                {
-                    yield return DesignationCategoryDefOf.HygieneMisc;
-                }
-
-                if (DesignationCategoryDefOf.DefensesExpanded_CustomCategory != null)
-                {
-                    yield return DesignationCategoryDefOf.DefensesExpanded_CustomCategory;
-                }
             }
         }
 
         private static void ChangeDefLabels()
         {
             // Go through every appropriate def that has a label
-            var changeableDefTypes = GenDefDatabase.AllDefTypesWithDatabases().Where(t => ShouldChangeDefTypeLabel(t)).ToList();
-            for (var i = 0; i < changeableDefTypes.Count; i++)
+            var changeableDefTypes = GenDefDatabase.AllDefTypesWithDatabases().Where(ShouldChangeDefTypeLabel)
+                .ToList();
+            foreach (var defType in changeableDefTypes)
             {
-                var curDefs = GenDefDatabase.GetAllDefsInDatabaseForDef(changeableDefTypes[i]).ToList();
-                for (var j = 0; j < curDefs.Count; j++)
+                var curDefs = GenDefDatabase.GetAllDefsInDatabaseForDef(defType).ToList();
+                foreach (var curDef in curDefs)
                 {
-                    var curDef = curDefs[j];
-                    if (!curDef.label.NullOrEmpty())
+                    if (curDef.label.NullOrEmpty())
                     {
-                        // Update the def's label
-                        AdjustLabel(ref curDef.label);
+                        continue;
+                    }
 
-                        // If the def is a ThingDef...
-                        if (curDef is ThingDef tDef)
-                        {
-                            // If the ThingDef is a stuff item
-                            if (tDef.stuffProps is StuffProperties stuffProps)
-                            {
-                                // Update the stuff adjective if there is one
-                                if (!stuffProps.stuffAdjective.NullOrEmpty())
-                                {
-                                    AdjustLabel(ref stuffProps.stuffAdjective);
-                                }
-                            }
-                        }
+                    // Update the def's label
+                    AdjustLabel(ref curDef.label);
+
+                    // If the def is a ThingDef...
+                    if (curDef is not ThingDef tDef)
+                    {
+                        continue;
+                    }
+
+                    // If the ThingDef is a stuff item
+                    if (tDef.stuffProps is not StuffProperties stuffProps)
+                    {
+                        continue;
+                    }
+
+                    // Update the stuff adjective if there is one
+                    if (!stuffProps.stuffAdjective.NullOrEmpty())
+                    {
+                        AdjustLabel(ref stuffProps.stuffAdjective);
                     }
                 }
             }
         }
 
-        public static bool ShouldChangeDefTypeLabel(Type defType)
+        private static bool ShouldChangeDefTypeLabel(Type defType)
         {
-            return defType != typeof(StorytellerDef) && defType != typeof(ResearchProjectDef) && defType != typeof(ResearchTabDef) && defType != typeof(ExpansionDef);
+            return defType != typeof(StorytellerDef) && defType != typeof(ResearchProjectDef) &&
+                   defType != typeof(ResearchTabDef) && defType != typeof(ExpansionDef);
         }
 
         private static void AdjustLabel(ref string label)
@@ -213,13 +224,13 @@ namespace TinyTweaks
             var splitLabel = label.Split(' ');
 
             // Process each word within the label
-            for (var i = 0; i < splitLabel.Count(); i++)
+            for (var i = 0; i < splitLabel.Length; i++)
             {
                 // If the word contains hyphens, split at the hyphens and process each word
                 if (splitLabel[i].Contains('-'))
                 {
                     var labelPartSplit = splitLabel[i].Split('-');
-                    for (var j = 0; j < labelPartSplit.Count(); j++)
+                    for (var j = 0; j < labelPartSplit.Length; j++)
                     {
                         AdjustLabelPart(ref labelPartSplit[j], true);
                     }
@@ -249,20 +260,22 @@ namespace TinyTweaks
                 }
 
                 return;
-            }   
+            }
 
             // Split labelPart into its characters
             var labelPartChars = labelPart.ToCharArray();
 
             // Go through each character and if there are no more characters that aren't lower-cased letters, uncapitalise labelPart
             var uncapitalise = true;
-            for (var j = 1; j < labelPartChars.Count(); j++)
+            for (var j = 1; j < labelPartChars.Length; j++)
             {
-                if (!char.IsLower(labelPartChars[j]))
+                if (char.IsLower(labelPartChars[j]))
                 {
-                    uncapitalise = false;
-                    break;
+                    continue;
                 }
+
+                uncapitalise = false;
+                break;
             }
 
             if (uncapitalise)
@@ -270,7 +283,5 @@ namespace TinyTweaks
                 labelPart = labelPart.ToLower();
             }
         }
-
     }
-
 }

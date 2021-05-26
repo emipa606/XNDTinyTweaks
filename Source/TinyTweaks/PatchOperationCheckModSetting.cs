@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Reflection;
-using Verse;
 using System.Xml;
+using Verse;
 
 namespace TinyTweaks
 {
-
     public class PatchOperationCheckModSetting : PatchOperation
     {
+        private readonly string settingName;
 
         private readonly Type settingsType;
-        private readonly string settingName;
 
         protected override bool ApplyWorker(XmlDocument xml)
         {
@@ -20,13 +19,15 @@ namespace TinyTweaks
                 return false;
             }
 
-            var settingInfo = settingsType.GetField(settingName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
-            if (settingInfo == null)
+            var settingInfo = settingsType.GetField(settingName,
+                BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
+            if (settingInfo != null)
             {
-                LogPatchOperationError($"{settingName} could not be found");
-                return false;
+                return (bool) settingInfo.GetValue(null);
             }
-            return (bool)settingInfo.GetValue(null);
+
+            LogPatchOperationError($"{settingName} could not be found");
+            return false;
         }
 
         private void LogPatchOperationError(string message)
@@ -34,5 +35,4 @@ namespace TinyTweaks
             Log.Error($"Error with PatchOperationCheckModSetting in {sourceFile}: {message}");
         }
     }
-
 }

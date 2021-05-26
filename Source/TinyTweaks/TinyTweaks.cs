@@ -1,26 +1,24 @@
-﻿using UnityEngine;
+﻿using HarmonyLib;
+using UnityEngine;
 using Verse;
-using HarmonyLib;
 
 namespace TinyTweaks
 {
-
     public class TinyTweaks : Mod
     {
+        public static Harmony harmonyInstance;
 
         public TinyTweaksSettings settings;
 
         public TinyTweaks(ModContentPack content) : base(content)
         {
-            #if DEBUG
-                Log.Error("XeoNovaDan left debugging enabled in Tiny Tweaks - please let him know!");
-            #endif
+#if DEBUG
+            Log.Error("XeoNovaDan left debugging enabled in Tiny Tweaks - please let him know!");
+#endif
 
             settings = GetSettings<TinyTweaksSettings>();
             harmonyInstance = new Harmony("XeoNovaDan.TinyTweaks");
         }
-
-        public static Harmony harmonyInstance;
 
         public override string SettingsCategory()
         {
@@ -31,7 +29,5 @@ namespace TinyTweaks
         {
             settings.DoWindowContents(inRect);
         }
-
     }
-
 }
