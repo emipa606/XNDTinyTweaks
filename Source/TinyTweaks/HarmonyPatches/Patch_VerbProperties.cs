@@ -25,9 +25,9 @@ namespace TinyTweaks
                 var adjustedToolArmourPenetrationInfo = AccessTools.Method(typeof(AdjustedArmorPenetration),
                     nameof(AdjustedToolArmourPenetration));
 
-                for (var i = 0; i < instructionList.Count; i++)
+                foreach (var codeInstruction in instructionList)
                 {
-                    var instruction = instructionList[i];
+                    var instruction = codeInstruction;
 
                     // If a tool's AP is set, adjust it based on other factors (i.e. stuff and pawn age)
                     if (instruction.opcode == OpCodes.Ldfld && instruction.OperandIs(armourPenetrationInfo))
@@ -55,20 +55,22 @@ namespace TinyTweaks
                 Tool tool, Pawn attacker, Thing equipment, HediffComp_VerbGiver hediffCompSource)
             {
                 // Scale AP with stuff and pawn age
-                if (TinyTweaksSettings.meleeArmourPenetrationFix && armourPenetration > -1)
+                if (!TinyTweaksSettings.meleeArmourPenetrationFix || !(armourPenetration > -1))
                 {
-                    // Factor in equipment stuff
-                    if (equipment != null && equipment.Stuff != null && instance.meleeDamageDef != null)
-                    {
-                        armourPenetration *=
-                            equipment.Stuff.GetStatValueAbstract(instance.meleeDamageDef.armorCategory.multStat);
-                    }
+                    return armourPenetration;
+                }
 
-                    // Factor in attacker
-                    if (attacker != null)
-                    {
-                        armourPenetration *= instance.GetDamageFactorFor(tool, attacker, hediffCompSource);
-                    }
+                // Factor in equipment stuff
+                if (equipment is {Stuff: { }} && instance.meleeDamageDef != null)
+                {
+                    armourPenetration *=
+                        equipment.Stuff.GetStatValueAbstract(instance.meleeDamageDef.armorCategory.multStat);
+                }
+
+                // Factor in attacker
+                if (attacker != null)
+                {
+                    armourPenetration *= instance.GetDamageFactorFor(tool, attacker, hediffCompSource);
                 }
 
                 return armourPenetration;

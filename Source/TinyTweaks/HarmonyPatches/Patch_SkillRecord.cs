@@ -13,7 +13,7 @@ namespace TinyTweaks
             {
                 // Delay skill decay
                 if (TinyTweaksSettings.delayedSkillDecay &&
-                    ___pawn.GetComp<CompSkillRecordCache>() is CompSkillRecordCache cache &&
+                    ___pawn.GetComp<CompSkillRecordCache>() is { } cache &&
                     !cache.CanDecaySkill(__instance.def))
                 {
                     return false;

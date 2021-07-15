@@ -30,7 +30,7 @@ namespace TinyTweaks
 
             for (var i = 0; i < GenDate.HoursPerDay; i++)
             {
-                if (i >= 11 && i <= 18)
+                if (i is >= 11 and <= 18)
                 {
                     pawn.timetable.times[i] = TimeAssignmentDefOf.Sleep;
                 }
@@ -63,18 +63,17 @@ namespace TinyTweaks
             }
         }
 
-        [HarmonyPatch(typeof(InteractionWorker_RecruitAttempt), "DoRecruit", typeof(Pawn), typeof(Pawn), typeof(float),
-            typeof(bool))]
+        [HarmonyPatch(typeof(InteractionWorker_RecruitAttempt), "DoRecruit", typeof(Pawn), typeof(Pawn), typeof(bool))]
         public static class InteractionWorker_RecruitAttempt_DoRecruit
         {
-            public static void Postfix(Pawn recruiter, Pawn recruitee, float recruitChance)
+            public static void Postfix(Pawn recruitee)
             {
                 if (!TinyTweaksSettings.autoOwl)
                 {
                     return;
                 }
 
-                if (!(recruitee is Pawn pawn))
+                if (recruitee is not { } pawn)
                 {
                     return;
                 }

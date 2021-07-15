@@ -65,7 +65,7 @@ namespace TinyTweaks
                 }
 
                 // If the def has RaceProps and RaceProps are humanlike, add CompSkillTrackerCache to it
-                if (tDef.race != null && tDef.race.Humanlike)
+                if (tDef.race is {Humanlike: true})
                 {
                     tDef.AddComp(typeof(CompSkillRecordCache));
                 }
@@ -198,7 +198,7 @@ namespace TinyTweaks
                     }
 
                     // If the ThingDef is a stuff item
-                    if (tDef.stuffProps is not StuffProperties stuffProps)
+                    if (tDef.stuffProps is not { } stuffProps)
                     {
                         continue;
                     }

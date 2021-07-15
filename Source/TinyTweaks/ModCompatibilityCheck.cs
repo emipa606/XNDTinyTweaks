@@ -13,10 +13,8 @@ namespace TinyTweaks
         {
             var loadedMods = ModsConfig.ActiveModsInLoadOrder.ToList();
 
-            for (var i = 0; i < loadedMods.Count; i++)
+            foreach (var curMod in loadedMods)
             {
-                var curMod = loadedMods[i];
-
                 if (curMod.PackageId.Equals("Dubwise.DubsBadHygiene", StringComparison.CurrentCultureIgnoreCase))
                 {
                     DubsBadHygiene = true;

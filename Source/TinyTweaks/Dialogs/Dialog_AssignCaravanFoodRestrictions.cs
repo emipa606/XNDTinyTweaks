@@ -85,7 +85,6 @@ namespace TinyTweaks
             var num2 = Mathf.FloorToInt((rect.width - 4f) * 0.2857143f);
             var num3 = rect.x;
             var rect2 = new Rect(num3, rect.y + 2f, num, rect.height - 4f);
-            var rect3 = rect2;
 
             FoodRestriction getPayload(Pawn p)
             {
@@ -96,7 +95,7 @@ namespace TinyTweaks
                 new Func<Pawn, IEnumerable<Widgets.DropdownMenuElement<FoodRestriction>>>(Button_GenerateMenu);
             var buttonLabel = pawn.foodRestriction.CurrentFoodRestriction.label.Truncate(rect2.width);
             var label = pawn.foodRestriction.CurrentFoodRestriction.label;
-            Widgets.Dropdown(rect3, pawn, getPayload, menuGenerator, buttonLabel, null, label, null, null, true);
+            Widgets.Dropdown(rect2, pawn, getPayload, menuGenerator, buttonLabel, null, label, null, null, true);
             num3 += num;
             num3 += 4f;
             var rect4 = new Rect(num3, rect.y + 2f, num2, rect.height - 4f);
