@@ -63,18 +63,19 @@ namespace TinyTweaks
             }
         }
 
-        [HarmonyPatch(typeof(InteractionWorker_RecruitAttempt), "DoRecruit", new System.Type[] { typeof(Pawn), typeof(Pawn), typeof(string), typeof(string), typeof(bool), typeof(bool) },
-                                                                             new ArgumentType[] { ArgumentType.Normal, ArgumentType.Normal, ArgumentType.Out, ArgumentType.Out, ArgumentType.Normal, ArgumentType.Normal })]
-        public static class InteractionWorker_RecruitAttempt_DoRecruit
+
+
+        [HarmonyPatch(typeof(Pawn), "SetFaction", new System.Type[] { typeof(Faction), typeof(Pawn) })]
+        public static class Pawn_SetFaction
         {
-            public static void Postfix(Pawn recruitee)
+            public static void Postfix(Pawn __instance)
             {
                 if (!TinyTweaksSettings.autoOwl)
                 {
                     return;
                 }
 
-                if (recruitee is not { } pawn)
+                if (!(__instance is Pawn pawn))
                 {
                     return;
                 }
