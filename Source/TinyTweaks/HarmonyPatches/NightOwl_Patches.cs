@@ -64,9 +64,9 @@ namespace TinyTweaks
         }
 
 
-
         [HarmonyPatch(typeof(Pawn), "SetFaction", new System.Type[] { typeof(Faction), typeof(Pawn) })]
         public static class Pawn_SetFaction
+
         {
             public static void Postfix(Pawn __instance)
             {
