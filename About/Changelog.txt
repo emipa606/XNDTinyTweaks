@@ -1,5 +1,8 @@
 # Changelog for XNDTinyTweaks
 
+1.0.7.0 - Fixed auto night-owl for reqruited pawns, thanks angelolocritani
+
+
 1.0.6.0 - Fix for reqruited pawns night-owl setting, thanks angelolocritani!
 
 

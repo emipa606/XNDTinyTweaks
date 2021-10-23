@@ -64,7 +64,7 @@ namespace TinyTweaks
         }
 
 
-        [HarmonyPatch(typeof(Pawn), "SetFaction", new System.Type[] { typeof(Faction), typeof(Pawn) })]
+        [HarmonyPatch(typeof(Pawn), "SetFaction", typeof(Faction), typeof(Pawn))]
         public static class Pawn_SetFaction
 
         {
@@ -75,7 +75,7 @@ namespace TinyTweaks
                     return;
                 }
 
-                if (!(__instance is Pawn pawn))
+                if (__instance is not { } pawn)
                 {
                     return;
                 }
