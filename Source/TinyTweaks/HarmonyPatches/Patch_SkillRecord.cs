@@ -12,14 +12,9 @@ public static class Patch_SkillRecord
         public static bool Prefix(SkillRecord __instance, Pawn ___pawn)
         {
             // Delay skill decay
-            if (TinyTweaksSettings.delayedSkillDecay &&
-                ___pawn.GetComp<CompSkillRecordCache>() is { } cache &&
-                !cache.CanDecaySkill(__instance.def))
-            {
-                return false;
-            }
-
-            return true;
+            return !TinyTweaksSettings.delayedSkillDecay ||
+                   ___pawn.GetComp<CompSkillRecordCache>() is not { } cache ||
+                   cache.CanDecaySkill(__instance.def);
         }
     }
 

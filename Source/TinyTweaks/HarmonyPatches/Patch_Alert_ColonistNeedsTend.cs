@@ -45,12 +45,7 @@ public static class Patch_Alert_ColonistNeedsTend
         private static bool AllowIfMedical(bool original)
         {
             // Return false here because this'll satisfy the condition to show the alert
-            if (TinyTweaksSettings.medBedMedicalAlert)
-            {
-                return false;
-            }
-
-            return original;
+            return !TinyTweaksSettings.medBedMedicalAlert && original;
         }
     }
 }

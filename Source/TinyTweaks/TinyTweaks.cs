@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using Mlie;
 using UnityEngine;
 using Verse;
 
@@ -7,6 +8,7 @@ namespace TinyTweaks;
 public class TinyTweaks : Mod
 {
     public static Harmony harmonyInstance;
+    public static string currentVersion;
 
     public TinyTweaksSettings settings;
 
@@ -18,6 +20,8 @@ public class TinyTweaks : Mod
 
         settings = GetSettings<TinyTweaksSettings>();
         harmonyInstance = new Harmony("XeoNovaDan.TinyTweaks");
+        currentVersion =
+            VersionFromManifest.GetVersionFromModMetaData(ModLister.GetActiveModWithIdentifier("Mlie.XNDTinyTweaks"));
     }
 
     public override string SettingsCategory()

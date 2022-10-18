@@ -51,7 +51,7 @@ public class CompLaunchableAutoRebuild : ThingComp
     {
         if (signal == AutoRebuildSignal && autoRebuild)
         {
-            GenConstruct.PlaceBlueprintForBuild_NewTemp(parent.def, parent.Position, previousMap, parent.Rotation,
+            GenConstruct.PlaceBlueprintForBuild(parent.def, parent.Position, previousMap, parent.Rotation,
                 Faction.OfPlayer, parent.Stuff);
         }
 

@@ -244,6 +244,13 @@ public class TinyTweaksSettings : ModSettings
         }
 
         DoPageButtons(wrect);
+        if (TinyTweaks.currentVersion != null)
+        {
+            options.Gap();
+            GUI.contentColor = Color.gray;
+            options.Label("TinyTweaks.CurrentModVersion".Translate(TinyTweaks.currentVersion));
+            GUI.contentColor = Color.white;
+        }
 
         // Finish
         options.End();

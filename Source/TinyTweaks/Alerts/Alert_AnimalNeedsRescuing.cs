@@ -52,11 +52,6 @@ public class Alert_AnimalNeedsRescuing : Alert_Critical
 
     public override AlertReport GetReport()
     {
-        if (!TinyTweaksSettings.animalMedicalAlerts)
-        {
-            return false;
-        }
-
-        return AlertReport.CulpritsAre(AnimalsNeedingRescue);
+        return !TinyTweaksSettings.animalMedicalAlerts ? false : AlertReport.CulpritsAre(AnimalsNeedingRescue);
     }
 }
