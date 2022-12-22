@@ -32,6 +32,8 @@
   <TinyTweaks.BugFixesHeading>Bug Fixes</TinyTweaks.BugFixesHeading>
   <TinyTweaks.BugFixes.MeleeArmourPenetration>Melee armour penetration scaling</TinyTweaks.BugFixes.MeleeArmourPenetration>
   <TinyTweaks.BugFixes.MeleeArmourPenetration_ToolTip>Preset armour penetration values for melee weapons such as spears will scale with the weapon's quality and stuff it's made out of.</TinyTweaks.BugFixes.MeleeArmourPenetration_ToolTip>
+    <TinyTweaks.BugFixes.FixAnimalCount>Fix animal count on auto-slaughter window</TinyTweaks.BugFixes.FixAnimalCount>
+  <TinyTweaks.BugFixes.FixAnimalCount_ToolTip>The "total" column on auto-slaughter window will only show total slaughterable animals, considering pregnant ones only if the specific checkbox is toggled. It's a GUI only fix: internally, code already counted total that way, was just displayed wrongly.</TinyTweaks.BugFixes.FixAnimalCount_ToolTip>
   <!-- Balance Changes -->
   <TinyTweaks.BalanceChangesHeading>Balance Changes</TinyTweaks.BalanceChangesHeading>
   <TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding>Blood pumping affects bleeding</TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding>
