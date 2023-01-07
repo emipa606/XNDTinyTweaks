@@ -29,6 +29,7 @@ public class TinyTweaksSettings : ModSettings
     public static bool autoOwl = true;
     public static bool medBedMedicalAlert = true;
     public static bool alphabeticalBillList = true;
+    public static bool ShowGenderAgeCaravanFormDialog = true;
 
     // Restart
     public static bool changeDefLabels = true;
@@ -124,6 +125,11 @@ public class TinyTweaksSettings : ModSettings
         options.CheckboxLabeled("TinyTweaks.QoLChanges.AlphabeticalBillList".Translate(), ref alphabeticalBillList,
             "TinyTweaks.QoLChanges.AlphabeticalBillList_ToolTip".Translate());
 
+        // Show gender and age in caravan form dialog
+        options.Gap();
+        options.CheckboxLabeled("TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog".Translate(), ref ShowGenderAgeCaravanFormDialog,
+            "TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip".Translate());
+
 
         // 'Game restart required' note
         options.GapLine(24);
@@ -142,6 +148,8 @@ public class TinyTweaksSettings : ModSettings
         options.Gap();
         options.CheckboxLabeled("TinyTweaks.QoLChanges.ChangeDefLabels".Translate(), ref changeDefLabels,
             "TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip".Translate());
+
+       
     }
 
     private void DoBugFixes(Listing_Standard options)
@@ -266,6 +274,7 @@ public class TinyTweaksSettings : ModSettings
         Scribe_Values.Look(ref autoOwl, "autoOwl", true);
         Scribe_Values.Look(ref medBedMedicalAlert, "medBedMedicalAlert", true);
         Scribe_Values.Look(ref alphabeticalBillList, "alphabeticalBillList", true);
+        Scribe_Values.Look(ref alphabeticalBillList, "ShowGenderAgeCaravanFormDialog", true);
 
         // Restart
         Scribe_Values.Look(ref changeDefLabels, "changeDefLabels", true);
