@@ -5,6 +5,7 @@ using Verse.Sound;
 
 namespace TinyTweaks;
 
+
 public class TinyTweaksSettings : ModSettings
 {
     private const float PageButtonWidth = 150;
@@ -18,6 +19,7 @@ public class TinyTweaksSettings : ModSettings
 
     private const int MaxPageIndex = AdditionsPageIndex;
     public static bool meleeArmourPenetrationFix = true;
+    public static bool fixAnimalCount = true;
 
     public static bool randomStartingSeason = true;
     private static int _pageIndex = 1;
@@ -29,6 +31,7 @@ public class TinyTweaksSettings : ModSettings
     public static bool autoOwl = true;
     public static bool medBedMedicalAlert = true;
     public static bool alphabeticalBillList = true;
+
 
     // Restart
     public static bool changeDefLabels = true;
@@ -64,7 +67,7 @@ public class TinyTweaksSettings : ModSettings
                 goto WriteHeader;
         }
 
-        WriteHeader:
+    WriteHeader:
         Text.Font = font + 1;
         listing.Label(headingTranslationKey.Translate());
         Text.Font = font;
@@ -153,6 +156,12 @@ public class TinyTweaksSettings : ModSettings
         options.Gap();
         options.CheckboxLabeled("TinyTweaks.BugFixes.MeleeArmourPenetration".Translate(),
             ref meleeArmourPenetrationFix, "TinyTweaks.BugFixes.MeleeArmourPenetration_ToolTip".Translate());
+
+        // Fix animal count on autoslaughter window
+        options.Gap();
+        options.CheckboxLabeled("TinyTweaks.BugFixes.FixAnimalCount".Translate(), ref fixAnimalCount,
+            "TinyTweaks.BugFixes.FixAnimalCount_ToolTip".Translate());
+
     }
 
     private void DoBalanceChanges(Listing_Standard options)
@@ -267,12 +276,14 @@ public class TinyTweaksSettings : ModSettings
         Scribe_Values.Look(ref medBedMedicalAlert, "medBedMedicalAlert", true);
         Scribe_Values.Look(ref alphabeticalBillList, "alphabeticalBillList", true);
 
+
         // Restart
         Scribe_Values.Look(ref changeDefLabels, "changeDefLabels", true);
         Scribe_Values.Look(ref changeBuildableDefDesignationCategories, "changeBuildableDefDesignationCategories",
             true);
 
         Scribe_Values.Look(ref meleeArmourPenetrationFix, "meleeArmourPenetrationFix", true);
+        Scribe_Values.Look(ref fixAnimalCount, "fixAnimalCount", true);
 
         Scribe_Values.Look(ref changeQualityDistribution, "changeQualityDistribution");
         Scribe_Values.Look(ref bloodPumpingAffectsBleeding, "bloodPumpingAffectsBleeding");
