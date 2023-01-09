@@ -41,4 +41,8 @@
   <TinyTweaks.TinyAdditionsHeading>Winzige Ergänzungen</TinyTweaks.TinyAdditionsHeading>
   <TinyTweaks.TinyAdditions.RandomStartingSeason>Zufälliger Saisonbeginn als Option</TinyTweaks.TinyAdditions.RandomStartingSeason>
   <TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip>Beim Öffnen der erweiterten Einstellungen bei der Erstellung eines neuen Planeten wird es auch eine Option für eine zufällige Startsaison geben.</TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip>
+  <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog>Geschlecht und Alter im Wohnwagenformular-Dialog anzeigen</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog>
+  <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>Geschlecht und Alter im Karawanen-Formular-Dialog anzeigen, wie beim Handel.</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>
+  <TinyTweaks.BugFixes.FixAnimalCount>Tierzahl im Fenster für die automatische Schlachtung korrigieren</TinyTweaks.BugFixes.FixAnimalCount>
+  <TinyTweaks.BugFixes.FixAnimalCount_ToolTip>Die "Gesamt"-Spalte im Autoschlacht-Fenster zeigt nur die Gesamtzahl der schlachtbaren Tiere an, wobei trächtige Tiere nur berücksichtigt werden, wenn das entsprechende Kontrollkästchen aktiviert ist. Dies ist eine reine GUI-Korrektur: intern hat der Code die Gesamtzahl bereits auf diese Weise gezählt, sie wurde nur falsch angezeigt.</TinyTweaks.BugFixes.FixAnimalCount_ToolTip>
 </LanguageData>

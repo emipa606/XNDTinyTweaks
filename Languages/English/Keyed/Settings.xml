@@ -28,11 +28,13 @@
   <TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip>Certain architect menu tabs from certain mods will be merged with vanilla architect tabs (e.g. 'Furniture+' from More Furniture merged into 'Furniture'). In some cases, new architect tabs may be added too (e.g. buildings from LWM Deep Storage will get their own 'Storage' tab).</TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip>
   <TinyTweaks.QoLChanges.ChangeDefLabels>Consistent label capitalisation</TinyTweaks.QoLChanges.ChangeDefLabels>
   <TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip>The labels of things such as items and recipe bills will be use vanilla capitalisation (e.g. White Composite Water Tower =&gt; White composite water tower).</TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip>
+  <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog>Show gender and age in caravan form dialog</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog>
+  <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>Show gender and age in caravan form dialog, like when trading.</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>
   <!-- Bug Fixes -->
   <TinyTweaks.BugFixesHeading>Bug Fixes</TinyTweaks.BugFixesHeading>
   <TinyTweaks.BugFixes.MeleeArmourPenetration>Melee armour penetration scaling</TinyTweaks.BugFixes.MeleeArmourPenetration>
   <TinyTweaks.BugFixes.MeleeArmourPenetration_ToolTip>Preset armour penetration values for melee weapons such as spears will scale with the weapon's quality and stuff it's made out of.</TinyTweaks.BugFixes.MeleeArmourPenetration_ToolTip>
-    <TinyTweaks.BugFixes.FixAnimalCount>Fix animal count on auto-slaughter window</TinyTweaks.BugFixes.FixAnimalCount>
+  <TinyTweaks.BugFixes.FixAnimalCount>Fix animal count on auto-slaughter window</TinyTweaks.BugFixes.FixAnimalCount>
   <TinyTweaks.BugFixes.FixAnimalCount_ToolTip>The "total" column on auto-slaughter window will only show total slaughterable animals, considering pregnant ones only if the specific checkbox is toggled. It's a GUI only fix: internally, code already counted total that way, was just displayed wrongly.</TinyTweaks.BugFixes.FixAnimalCount_ToolTip>
   <!-- Balance Changes -->
   <TinyTweaks.BalanceChangesHeading>Balance Changes</TinyTweaks.BalanceChangesHeading>

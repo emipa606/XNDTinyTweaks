@@ -4,7 +4,7 @@ using Verse;
 
 namespace TinyTweaks;
 
-public static class NightOwl_Patches
+public static class Patches_NightOwl
 {
     private static void SetNightOwl(Pawn pawn)
     {

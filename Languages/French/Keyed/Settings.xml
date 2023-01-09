@@ -41,4 +41,8 @@
   <TinyTweaks.TinyAdditionsHeading>Petits ajouts</TinyTweaks.TinyAdditionsHeading>
   <TinyTweaks.TinyAdditions.RandomStartingSeason>Option de début de saison aléatoire</TinyTweaks.TinyAdditions.RandomStartingSeason>
   <TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip>En ouvrant les paramètres avancés lors de la génération d'une nouvelle planète, il y aura également une option pour avoir une saison de départ aléatoire.</TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip>
+  <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog>Afficher le sexe et l'âge dans le dialogue du formulaire de la caravane</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog>
+  <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>Afficher le sexe et l'âge dans le dialogue du formulaire de la caravane, comme pour le commerce.</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>
+  <TinyTweaks.BugFixes.FixAnimalCount>Correction du nombre d'animaux dans la fenêtre d'abattage automatique</TinyTweaks.BugFixes.FixAnimalCount>
+  <TinyTweaks.BugFixes.FixAnimalCount_ToolTip>La colonne "total" de la fenêtre d'abattage automatique n'affichera que le total des animaux abattables, en considérant les femelles gestantes uniquement si la case spécifique est cochée. C'est un correctif uniquement pour l'interface graphique : en interne, le code comptait déjà le total de cette façon, il était juste mal affiché.</TinyTweaks.BugFixes.FixAnimalCount_ToolTip>
 </LanguageData>

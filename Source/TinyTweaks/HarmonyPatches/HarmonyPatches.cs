@@ -1,5 +1,7 @@
 ﻿using Verse;
+#if DEBUG
 using HarmonyLib;
+#endif
 namespace TinyTweaks;
 
 [StaticConstructorOnStartup]

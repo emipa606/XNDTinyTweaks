@@ -5,7 +5,6 @@ using Verse.Sound;
 
 namespace TinyTweaks;
 
-
 public class TinyTweaksSettings : ModSettings
 {
     private const float PageButtonWidth = 150;
@@ -31,7 +30,7 @@ public class TinyTweaksSettings : ModSettings
     public static bool autoOwl = true;
     public static bool medBedMedicalAlert = true;
     public static bool alphabeticalBillList = true;
-
+    public static bool ShowGenderAgeCaravanFormDialog = true;
 
     // Restart
     public static bool changeDefLabels = true;
@@ -49,7 +48,7 @@ public class TinyTweaksSettings : ModSettings
 
     private void DoHeading(Listing_Standard listing, GameFont font)
     {
-        listing.Gap();
+        listing.Gap(10);
         var headingTranslationKey = "TinyTweaks.";
         switch (PageIndex)
         {
@@ -67,7 +66,7 @@ public class TinyTweaksSettings : ModSettings
                 goto WriteHeader;
         }
 
-    WriteHeader:
+        WriteHeader:
         Text.Font = font + 1;
         listing.Label(headingTranslationKey.Translate());
         Text.Font = font;
@@ -76,13 +75,13 @@ public class TinyTweaksSettings : ModSettings
 
     private void GameRestartNotRequired(Listing_Standard listing)
     {
-        listing.Gap();
+        listing.Gap(10);
         listing.Label("TinyTweaks.GameRestartNotRequired".Translate());
     }
 
     private void GameRestartRequired(Listing_Standard listing)
     {
-        listing.Gap();
+        listing.Gap(10);
         listing.Label("TinyTweaks.GameRestartRequired".Translate());
     }
 
@@ -92,40 +91,46 @@ public class TinyTweaksSettings : ModSettings
         GameRestartNotRequired(options);
 
         // Animal medical alerts
-        options.Gap();
+        options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.QoLChanges.AnimalMedicalAlerts".Translate(), ref animalMedicalAlerts,
             "TinyTweaks.QoLChanges.AnimalMedicalAlerts_ToolTip".Translate());
 
         // Assign food restrictions for caravans
-        options.Gap();
+        options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.QoLChanges.CaravanFoodRestrictions".Translate(),
             ref caravanFoodRestrictions, "TinyTweaks.QoLChanges.CaravanFoodRestrictions_ToolTip".Translate());
 
         // Automatically assign animals to follow their master
-        options.Gap();
+        options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings".Translate(),
             ref autoAssignAnimalFollowSettings,
             "TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings_ToolTip".Translate());
 
         // Automatically remove finished moisture pumps
-        options.Gap();
+        options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry".Translate(),
             ref autoRemoveMoisturePumps, "TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry_ToolTip".Translate());
 
         // Automatically set night owl timetables
-        options.Gap();
+        options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.QoLChanges.AutoOwl".Translate(), ref autoOwl,
             "TinyTweaks.QoLChanges.AutoOwl_ToolTip".Translate());
 
         // Show 'colonist needs treatment' alerts for pawns in medical beds
-        options.Gap();
+        options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.QoLChanges.MedBedMedicalAlert".Translate(), ref medBedMedicalAlert,
             "TinyTweaks.QoLChanges.MedBedMedicalAlert_ToolTip".Translate());
 
         // Sort workbench bill list alphabetically
-        options.Gap();
+        options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.QoLChanges.AlphabeticalBillList".Translate(), ref alphabeticalBillList,
             "TinyTweaks.QoLChanges.AlphabeticalBillList_ToolTip".Translate());
+
+        // Show gender and age in caravan form dialog
+        options.Gap(10);
+        options.CheckboxLabeled("TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog".Translate(),
+            ref ShowGenderAgeCaravanFormDialog,
+            "TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip".Translate());
 
 
         // 'Game restart required' note
@@ -135,16 +140,21 @@ public class TinyTweaksSettings : ModSettings
         if (ModLister.GetActiveModWithIdentifier("LWM.DeepStorage") == null)
         {
             // Change architect menu tabs
-            options.Gap();
+            options.Gap(10);
             options.CheckboxLabeled("TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories".Translate(),
                 ref changeBuildableDefDesignationCategories,
                 "TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip".Translate());
         }
 
         // Consistent label casing
-        options.Gap();
+        options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.QoLChanges.ChangeDefLabels".Translate(), ref changeDefLabels,
             "TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip".Translate());
+
+        // Fix animal count on autoslaughter window
+        options.Gap(10);
+        options.CheckboxLabeled("TinyTweaks.BugFixes.FixAnimalCount".Translate(), ref fixAnimalCount,
+            "TinyTweaks.BugFixes.FixAnimalCount_ToolTip".Translate());
     }
 
     private void DoBugFixes(Listing_Standard options)
@@ -153,15 +163,9 @@ public class TinyTweaksSettings : ModSettings
         GameRestartNotRequired(options);
 
         // Melee weapon AP fix
-        options.Gap();
+        options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.BugFixes.MeleeArmourPenetration".Translate(),
             ref meleeArmourPenetrationFix, "TinyTweaks.BugFixes.MeleeArmourPenetration_ToolTip".Translate());
-
-        // Fix animal count on autoslaughter window
-        options.Gap();
-        options.CheckboxLabeled("TinyTweaks.BugFixes.FixAnimalCount".Translate(), ref fixAnimalCount,
-            "TinyTweaks.BugFixes.FixAnimalCount_ToolTip".Translate());
-
     }
 
     private void DoBalanceChanges(Listing_Standard options)
@@ -170,19 +174,19 @@ public class TinyTweaksSettings : ModSettings
         GameRestartNotRequired(options);
 
         // Blood pumping affects bleeding
-        options.Gap();
+        options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding".Translate(),
             ref bloodPumpingAffectsBleeding,
             "TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding_ToolTip".Translate());
 
         // Change quality distribution
-        options.Gap();
+        options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.BalanceChanges.ChangeQualityDistribution".Translate(),
             ref changeQualityDistribution,
             "TinyTweaks.BalanceChanges.ChangeQualityDistribution_ToolTip".Translate());
 
         // Delayed skill decay
-        options.Gap();
+        options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.BalanceChanges.DelayedSkillDecay".Translate(), ref delayedSkillDecay,
             "TinyTweaks.BalanceChanges.DelayedSkillDecay_ToolTip".Translate());
     }
@@ -193,7 +197,7 @@ public class TinyTweaksSettings : ModSettings
         GameRestartNotRequired(options);
 
         // Random season button
-        options.Gap();
+        options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.TinyAdditions.RandomStartingSeason".Translate(),
             ref randomStartingSeason, "TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip".Translate());
     }
@@ -255,7 +259,7 @@ public class TinyTweaksSettings : ModSettings
         DoPageButtons(wrect);
         if (TinyTweaks.currentVersion != null)
         {
-            options.Gap();
+            options.Gap(10);
             GUI.contentColor = Color.gray;
             options.Label("TinyTweaks.CurrentModVersion".Translate(TinyTweaks.currentVersion));
             GUI.contentColor = Color.white;
@@ -275,15 +279,14 @@ public class TinyTweaksSettings : ModSettings
         Scribe_Values.Look(ref autoOwl, "autoOwl", true);
         Scribe_Values.Look(ref medBedMedicalAlert, "medBedMedicalAlert", true);
         Scribe_Values.Look(ref alphabeticalBillList, "alphabeticalBillList", true);
-
+        Scribe_Values.Look(ref alphabeticalBillList, "ShowGenderAgeCaravanFormDialog", true);
 
         // Restart
         Scribe_Values.Look(ref changeDefLabels, "changeDefLabels", true);
         Scribe_Values.Look(ref changeBuildableDefDesignationCategories, "changeBuildableDefDesignationCategories",
             true);
-
-        Scribe_Values.Look(ref meleeArmourPenetrationFix, "meleeArmourPenetrationFix", true);
         Scribe_Values.Look(ref fixAnimalCount, "fixAnimalCount", true);
+        Scribe_Values.Look(ref meleeArmourPenetrationFix, "meleeArmourPenetrationFix", true);
 
         Scribe_Values.Look(ref changeQualityDistribution, "changeQualityDistribution");
         Scribe_Values.Look(ref bloodPumpingAffectsBleeding, "bloodPumpingAffectsBleeding");

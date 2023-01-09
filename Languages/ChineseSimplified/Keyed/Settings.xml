@@ -45,4 +45,8 @@
   <TinyTweaks.CurrentModVersion>已安装的mod-version。{0}</TinyTweaks.CurrentModVersion>
   <TinyTweaks.QoLChanges.AnimalMedicalAlerts>动物医疗警报</TinyTweaks.QoLChanges.AnimalMedicalAlerts>
   <TinyTweaks.QoLChanges.AnimalMedicalAlerts_ToolTip>当动物受伤、需要救援或处于危及生命的状态时，将显示警报，类似于殖民者医疗警报。</TinyTweaks.QoLChanges.AnimalMedicalAlerts_ToolTip>
+  <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog>在房车表格对话框中显示性别和年龄</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog>
+  <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>在房车表格对话框中显示性别和年龄，就像交易时一样。</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>
+  <TinyTweaks.BugFixes.FixAnimalCount>修复自动屠宰窗口的动物数量</TinyTweaks.BugFixes.FixAnimalCount>
+  <TinyTweaks.BugFixes.FixAnimalCount_ToolTip>自动屠宰窗口的 "总数 "栏只显示可屠宰的动物总数，只有当特定的复选框被拨动时才考虑怀孕的动物。这只是一个GUI的修正：在内部，代码已经以这种方式计算了总数，只是显示错误。</TinyTweaks.BugFixes.FixAnimalCount_ToolTip>
 </LanguageData>

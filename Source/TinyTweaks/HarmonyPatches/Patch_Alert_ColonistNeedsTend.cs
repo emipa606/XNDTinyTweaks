@@ -3,7 +3,9 @@ using System.Linq;
 using System.Reflection.Emit;
 using HarmonyLib;
 using RimWorld;
+#if DEBUG
 using Verse;
+#endif
 
 namespace TinyTweaks;
 
