@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-	<HugsLib.UpdateFeatureDef Abstract="true" Name="XNDTinyTweaks_UpdateFeatureBase">
-		<modNameReadable>XNDTinyTweaks</modNameReadable>
-		<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2270049772</linkUrl>
-	</HugsLib.UpdateFeatureDef>
-	<HugsLib.UpdateFeatureDef ParentName="XNDTinyTweaks_UpdateFeatureBase">
-		<defName>XNDTinyTweaks_1_4_2</defName>
-		<assemblyVersion>1.4.2</assemblyVersion>
-		<content>There are two new tweaks in this version:
+  <HugsLib.UpdateFeatureDef Abstract="true" Name="XNDTinyTweaks_UpdateFeatureBase">
+    <modNameReadable>XNDTinyTweaks</modNameReadable>
+    <linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2270049772</linkUrl>
+  </HugsLib.UpdateFeatureDef>
+  <HugsLib.UpdateFeatureDef ParentName="XNDTinyTweaks_UpdateFeatureBase">
+    <defName>XNDTinyTweaks_1_4_2</defName>
+    <assemblyVersion>1.4.2</assemblyVersion>
+    <content>There are two new tweaks in this version:
 Showing gender of pawns in trade dialogs
 Correcting the animal count display in the auto-slaughter window
 Thank you angelolocritani for these added tweaks!</content>
-	</HugsLib.UpdateFeatureDef>
+  </HugsLib.UpdateFeatureDef>
 </Defs>
-

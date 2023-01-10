@@ -12,9 +12,8 @@ public class TinyTweaksSettings : ModSettings
     private const float PageButtonPosOffsetFromCentre = 60;
 
     private const int QoLPageIndex = 1;
-    private const int BugFixPageIndex = 2;
-    private const int BalancePageIndex = 3;
-    private const int AdditionsPageIndex = 4;
+    private const int BalancePageIndex = 2;
+    private const int AdditionsPageIndex = 3;
 
     private const int MaxPageIndex = AdditionsPageIndex;
     public static bool meleeArmourPenetrationFix = true;
@@ -54,9 +53,6 @@ public class TinyTweaksSettings : ModSettings
         {
             case QoLPageIndex:
                 headingTranslationKey += "QualityOfLifeChangesHeading";
-                goto WriteHeader;
-            case BugFixPageIndex:
-                headingTranslationKey += "BugFixesHeading";
                 goto WriteHeader;
             case BalancePageIndex:
                 headingTranslationKey += "BalanceChangesHeading";
@@ -157,17 +153,6 @@ public class TinyTweaksSettings : ModSettings
             "TinyTweaks.BugFixes.FixAnimalCount_ToolTip".Translate());
     }
 
-    private void DoBugFixes(Listing_Standard options)
-    {
-        // 'Game restart not required' note
-        GameRestartNotRequired(options);
-
-        // Melee weapon AP fix
-        options.Gap(10);
-        options.CheckboxLabeled("TinyTweaks.BugFixes.MeleeArmourPenetration".Translate(),
-            ref meleeArmourPenetrationFix, "TinyTweaks.BugFixes.MeleeArmourPenetration_ToolTip".Translate());
-    }
-
     private void DoBalanceChanges(Listing_Standard options)
     {
         // 'Game restart not required' note
@@ -245,9 +230,6 @@ public class TinyTweaksSettings : ModSettings
             case QoLPageIndex:
                 DoQualityOfLifeChanges(options);
                 break;
-            case BugFixPageIndex:
-                DoBugFixes(options);
-                break;
             case BalancePageIndex:
                 DoBalanceChanges(options);
                 break;
@@ -279,7 +261,7 @@ public class TinyTweaksSettings : ModSettings
         Scribe_Values.Look(ref autoOwl, "autoOwl", true);
         Scribe_Values.Look(ref medBedMedicalAlert, "medBedMedicalAlert", true);
         Scribe_Values.Look(ref alphabeticalBillList, "alphabeticalBillList", true);
-        Scribe_Values.Look(ref alphabeticalBillList, "ShowGenderAgeCaravanFormDialog", true);
+        Scribe_Values.Look(ref ShowGenderAgeCaravanFormDialog, "ShowGenderAgeCaravanFormDialog", true);
 
         // Restart
         Scribe_Values.Look(ref changeDefLabels, "changeDefLabels", true);

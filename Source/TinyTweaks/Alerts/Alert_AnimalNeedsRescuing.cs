@@ -44,7 +44,7 @@ public class Alert_AnimalNeedsRescuing : Alert_Critical
                 listEntry += $" {"BondBrackets".Translate()}".Colorize(ColoredText.NameColor);
             }
 
-            stringBuilder.AppendLine("  - " + listEntry.Resolve());
+            stringBuilder.AppendLine($"  - {listEntry.Resolve()}");
         }
 
         return string.Format("TinyTweaks.AnimalsNeedRescue_Desc".Translate(), stringBuilder);

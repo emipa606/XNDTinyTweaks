@@ -1,5 +1,8 @@
 # Changelog for XNDTinyTweaks
 
+1.4.3 - Added incompatibility tags, removed melee ap-fix as its fixed in vanilla.
+
+
 1.4.2 - Added two new tweaks, animal count and gender in trade dialogs
 Thanks angelolocritani!.
 Used DeepL to update translations for ChineseSimplified, French, German, Japanese, Russian

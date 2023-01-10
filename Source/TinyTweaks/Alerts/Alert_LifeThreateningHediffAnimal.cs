@@ -22,7 +22,7 @@ public class Alert_LifeThreateningHediffAnimal : Alert_Critical
 
                 foreach (var diff in p.health.hediffSet.hediffs)
                 {
-                    if (diff.CurStage == null || !diff.CurStage.lifeThreatening || diff.FullyImmune())
+                    if (diff.CurStage is not { lifeThreatening: true } || diff.FullyImmune())
                     {
                         continue;
                     }
@@ -54,11 +54,11 @@ public class Alert_LifeThreateningHediffAnimal : Alert_Critical
                 listEntry += $" {"BondBrackets".Translate()}".Colorize(ColoredText.NameColor);
             }
 
-            stringBuilder.AppendLine("  - " + listEntry.Resolve());
+            stringBuilder.AppendLine($"  - {listEntry.Resolve()}");
             var hediffs = pawn.health.hediffSet.hediffs;
             foreach (var hediff in hediffs)
             {
-                if (hediff.CurStage == null || !hediff.CurStage.lifeThreatening || hediff.Part == null ||
+                if (hediff.CurStage is not { lifeThreatening: true } || hediff.Part == null ||
                     hediff.Part == pawn.RaceProps.body.corePart)
                 {
                     continue;

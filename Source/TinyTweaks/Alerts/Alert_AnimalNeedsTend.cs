@@ -61,7 +61,7 @@ public class Alert_AnimalNeedsTend : Alert
                 listEntry += $" {"BondBrackets".Translate()}".Colorize(ColoredText.NameColor);
             }
 
-            stringBuilder.AppendLine("  - " + listEntry.Resolve());
+            stringBuilder.AppendLine($"  - {listEntry.Resolve()}");
         }
 
         return string.Format("TinyTweaks.AnimalNeedsTreatment_Desc".Translate(), stringBuilder);
