@@ -21,7 +21,7 @@ public class TinyTweaks : Mod
         settings = GetSettings<TinyTweaksSettings>();
         harmonyInstance = new Harmony("XeoNovaDan.TinyTweaks");
         currentVersion =
-            VersionFromManifest.GetVersionFromModMetaData(ModLister.GetActiveModWithIdentifier("Mlie.XNDTinyTweaks"));
+            VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
     }
 
     public override string SettingsCategory()

@@ -23,14 +23,7 @@ public class CompSkillRecordCache : ThingComp
 
     public void NotifySubstantialExperienceGainedFor(SkillDef skillDef)
     {
-        if (lastExperienceGainTickForSkillsCache.ContainsKey(skillDef))
-        {
-            lastExperienceGainTickForSkillsCache[skillDef] = Find.TickManager.TicksGame;
-        }
-        else
-        {
-            lastExperienceGainTickForSkillsCache.Add(skillDef, Find.TickManager.TicksGame);
-        }
+        lastExperienceGainTickForSkillsCache[skillDef] = Find.TickManager.TicksGame;
     }
 
     public bool CanDecaySkill(SkillDef skillDef)

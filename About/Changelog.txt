@@ -1,5 +1,8 @@
 # Changelog for XNDTinyTweaks
 
+1.4.4 - Only shows warning about non-existing skillcache once per pawn and if dev-mode is active
+
+
 1.4.3 - Added incompatibility tags, removed melee ap-fix as its fixed in vanilla.
 
 

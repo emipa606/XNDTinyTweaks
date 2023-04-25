@@ -36,10 +36,13 @@ public static class Patch_SkillRecord
             if (skillRecordCache != null)
             {
                 skillRecordCache.NotifySubstantialExperienceGainedFor(__instance.def);
+                return;
             }
-            else
+
+            if (Prefs.DevMode)
             {
-                Log.Warning($"{___pawn} has null CompSkillRecordCache (def={___pawn.def.defName})");
+                Log.WarningOnce($"{___pawn} has null CompSkillRecordCache (def={___pawn.def.defName})",
+                    $"CompSkillRecordCache{___pawn.ThingID}".GetHashCode());
             }
         }
     }
