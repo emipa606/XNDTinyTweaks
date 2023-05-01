@@ -1,40 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <!-- Alerts -->
-  <!-- Animal needs treatment -->
   <TinyTweaks.AnimalNeedsTreatment>Животное нуждается в лечении</TinyTweaks.AnimalNeedsTreatment>
-  <!-- Animals need treatment -->
   <TinyTweaks.AnimalsNeedTreatment>Животные нуждаются в лечении</TinyTweaks.AnimalsNeedTreatment>
-  <!-- These animals need medical treatment. Without it, they may die of their wounds, or their wounds may become permanent.\n\n{0} -->
   <TinyTweaks.AnimalNeedsTreatment_Desc>Эти животные нуждаются в лечении. Без него они могут умереть от полученных ран, или их раны могут стать постоянными.\n\n{0}</TinyTweaks.AnimalNeedsTreatment_Desc>
-  <!-- Animal needs rescue -->
   <TinyTweaks.AnimalNeedsRescue>Животное нуждается в спасении</TinyTweaks.AnimalNeedsRescue>
-  <!-- Animals need rescue -->
   <TinyTweaks.AnimalsNeedRescue>Животные нуждаются в спасении</TinyTweaks.AnimalsNeedRescue>
-  <!-- These animals are incapacitated on the ground:\n\n{0}\nSend a colonist to rescue them and carry them back to bed.\n\n(To rescue, select a colonist, then right click on the victim and select Rescue.) -->
   <TinyTweaks.AnimalsNeedRescue_Desc>Эти животные обездвижены и нуждаются в помощи:\n\n{0}\nПошлите поселенца, чтобы спасти их и отнести в безопасное место, где им смогут оказать медицинскую помощь.\n\n</TinyTweaks.AnimalsNeedRescue_Desc>
-  <!-- Medical emergency (animals) -->
   <TinyTweaks.AnimalsWithLifeThreateningDisease>Смертельные болезни (животные)</TinyTweaks.AnimalsWithLifeThreateningDisease>
-  <!-- Animals are at risk of death because of severe illness:\n\n{0}\nIf possible, consider amputating or replacing infected limbs in order to keep animals alive. -->
   <TinyTweaks.AnimalsWithLifeThreateningDiseaseAmputation_Desc>Животные, подверженные смертельному риску из-за серьёзных болезней:\n\n{0}\nЕсли у них инфицированы конечности, подумайте об их ампутации или замене, чтобы животные выжили.</TinyTweaks.AnimalsWithLifeThreateningDiseaseAmputation_Desc>
-  <!-- Animals are at risk of death because of severe illness:\n\n{0}\nMake sure that they get the best medical care possible. -->
   <TinyTweaks.AnimalsWithLifeThreateningDisease_Desc>Животные, подверженные смертельному риску из-за тяжёлых болезней:\n\n{0}\nУбедитесь, что они получают самый лучший врачебный уход.</TinyTweaks.AnimalsWithLifeThreateningDisease_Desc>
   <!-- Gizmos -->
-  <!-- Auto rebuild -->
   <TinyTweaks.CommandAutoRebuild>Автозамена</TinyTweaks.CommandAutoRebuild>
-  <!-- If enabled, this {0} will automatically be replaced once it has been launched. -->
-  <TinyTweaks.CommandAutoRebuild_Description>Если автозамена включена, устройство "{0}" будет автоматически заменено после запуска.</TinyTweaks.CommandAutoRebuild_Description>
+  <TinyTweaks.CommandAutoRebuild_Description>Если автозамена включена, устройство «{0}» будет автоматически заменено после запуска.</TinyTweaks.CommandAutoRebuild_Description>
   <!-- WITabs -->
-  <!-- Assign food restrictions -->
   <TinyTweaks.AssignFoodRestrictions>Назначить диету</TinyTweaks.AssignFoodRestrictions>
   <!-- Play Settings -->
-  <!-- Toggle visiblity of the power grid. -->
   <TinyTweaks.PowerGridButton>Отображение электрической сети.</TinyTweaks.PowerGridButton>
   <!-- Messages -->
-  <!-- A {0} has finished pumping the terrain around it. -->
-  <TinyTweaks.TerrainPumpDryFinished>Устройство "{0}" завершило осушение близлежащей местности.</TinyTweaks.TerrainPumpDryFinished>
-  <!-- It has been designated for uninstallation. -->
+  <TinyTweaks.TerrainPumpDryFinished>Устройство «{0}» завершило осушение близлежащей местности.</TinyTweaks.TerrainPumpDryFinished>
   <TinyTweaks.TerrainPumpDryFinished_Uninstall>Оно было отмечено для демонтажа.</TinyTweaks.TerrainPumpDryFinished_Uninstall>
-  <!-- It has been designated for deconstruction. -->
   <TinyTweaks.TerrainPumpDryFinished_Deconstruct>Оно было отмечено для разбора.</TinyTweaks.TerrainPumpDryFinished_Deconstruct>
 </LanguageData>
