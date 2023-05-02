@@ -71,4 +71,4 @@ Additional thanks goes to BryanAldrich for the fix with the Androids mod
 -  If you have the solution for a problem, please post it to the GitHub repository.
 
 
-https://steamcommunity.com/sharedfiles/filedetails/changelog/2270049772]Last updated 2023-04-25
+https://steamcommunity.com/sharedfiles/filedetails/changelog/2270049772]Last updated 2023-05-02
