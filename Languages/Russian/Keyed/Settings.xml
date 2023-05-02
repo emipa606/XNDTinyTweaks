@@ -1,90 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+  <TinyTweaks.CurrentModVersion>Установленная версия мода: {0}</TinyTweaks.CurrentModVersion>
   <TinyTweaks.SettingsCategory>Tiny Tweaks</TinyTweaks.SettingsCategory>
-  <!-- Next Page -->
   <TinyTweaks.NextPage>След. страница</TinyTweaks.NextPage>
-  <!-- Previous Page -->
   <TinyTweaks.PreviousPage>Пред. страница</TinyTweaks.PreviousPage>
-  <!-- Expand -->
   <TinyTweaks.Expand>Раскрыть</TinyTweaks.Expand>
-  <!-- Collapse -->
   <TinyTweaks.Collapse>Свернуть</TinyTweaks.Collapse>
-  <!-- Note: Changes made to these settings will be applied instantly - a game restart is not required. -->
-  <TinyTweaks.GameRestartNotRequired>Примечание: изменения, внесённые в эти настройки, будут применены мгновенно - перезапуск игры не требуется.</TinyTweaks.GameRestartNotRequired>
-  <!-- Note: Game restart required in order for any changes to these settings to take effect. -->
+  <TinyTweaks.GameRestartNotRequired>Примечание: изменения, внесённые в эти настройки, будут применены мгновенно — перезапуск игры не требуется.</TinyTweaks.GameRestartNotRequired>
   <TinyTweaks.GameRestartRequired>Примечание: требуется перезапуск игры, чтобы любые изменения в этих настройках вступили в силу.</TinyTweaks.GameRestartRequired>
   <!-- QoL Changes -->
-  <!-- Quality-of-Life Changes -->
   <TinyTweaks.QualityOfLifeChangesHeading>Полезные изменения (Quality of Life)</TinyTweaks.QualityOfLifeChangesHeading>
-  <!-- Animal medical alerts -->
   <TinyTweaks.QoLChanges.AnimalMedicalAlerts>Оповещения о состоянии здоровья животных</TinyTweaks.QoLChanges.AnimalMedicalAlerts>
-  <!-- Alerts will be shown when animals are injured, need rescuing or are in life-threatening condition, akin to colonist medical alerts. -->
   <TinyTweaks.QoLChanges.AnimalMedicalAlerts_ToolTip>Оповещения будут показываться, когда животные ранены, нуждаются в спасении или находятся в опасном для жизни состоянии, сродни оповещениям о состоянии здоровья поселенцев.</TinyTweaks.QoLChanges.AnimalMedicalAlerts_ToolTip>
-  <!-- Assign food restrictions for caravans -->
   <TinyTweaks.QoLChanges.CaravanFoodRestrictions>Назначение диеты для участников караванов</TinyTweaks.QoLChanges.CaravanFoodRestrictions>
-  <!-- When selecting one of your caravans on the world map and going to the 'Items' tab, there will be an 'assign food restrictions' button next to the 'assign drug policies' button. -->
-  <TinyTweaks.QoLChanges.CaravanFoodRestrictions_ToolTip>При выборе одного из ваших караванов на карте мира и переходе на вкладку "Груз", рядом с кнопкой "Политика приёма препаратов" появится кнопка "Назначить диету".</TinyTweaks.QoLChanges.CaravanFoodRestrictions_ToolTip>
-  <!-- Automatically assign animals to follow their master -->
+  <TinyTweaks.QoLChanges.CaravanFoodRestrictions_ToolTip>При выборе одного из ваших караванов на карте мира и переходе на вкладку «Груз», рядом с кнопкой «Политика приёма препаратов» появится кнопка «Назначить диету».</TinyTweaks.QoLChanges.CaravanFoodRestrictions_ToolTip>
   <TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings>Автоматически назначать животных следовать за своим хозяином</TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings>
-  <!-- Animals that have been trained in obedience will automatically be assigned to follow their master when drafted or doing fieldwork. -->
   <TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings_ToolTip>Животные, которые были обучены преданности, будут автоматически назначены следовать за своим хозяином при призыве или выполнении работ.</TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings_ToolTip>
-  <!-- Automatically remove finished moisture pumps -->
   <TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry>Автоматически отмечать для разбора/демонтажа закончившие работу водяные помпы</TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry>
-  <!-- Moisture pumps that have finished pumping will be automatically designated to be uninstalled or deconstructed, whichever is appropriate. -->
   <TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry_ToolTip>Водяные помпы, которые закончили осушение, будут автоматически отмечены для разбора или демонтажа, в зависимости от того, что более уместно.</TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry_ToolTip>
-  <!-- Automatically set night owl timetables -->
   <TinyTweaks.QoLChanges.AutoOwl>Автоматически назначать расписание сна для сов</TinyTweaks.QoLChanges.AutoOwl>
-  <!-- Newly-generated pawns with the Night Owl trait will automatically have their timetables set so that they sleep during the day. -->
-  <TinyTweaks.QoLChanges.AutoOwl_ToolTip>Вновь сгенерированным поселенцам с чертой "сова" будет автоматически установлено расписание сна так, чтобы они спали в течение дня.</TinyTweaks.QoLChanges.AutoOwl_ToolTip>
-  <!-- Show 'colonist needs treatment' alerts for pawns in medical beds -->
-  <TinyTweaks.QoLChanges.MedBedMedicalAlert>Показывать оповещения "Нужно лечение" для поселенцев на больничных кроватях</TinyTweaks.QoLChanges.MedBedMedicalAlert>
-  <!-- If a pawn has injuries or diseases that need tending and they are resting in a medical bed, still show the 'colonist needs treatment' alert for them. -->
-  <TinyTweaks.QoLChanges.MedBedMedicalAlert_ToolTip>Если у поселенца есть травмы или заболевания, которые нуждаются в уходе, и он уже отдыхает на больничной кровати, по-прежнему показывать оповещения "Нужно лечение" для них.</TinyTweaks.QoLChanges.MedBedMedicalAlert_ToolTip>
-  <!-- Sort workbench bill list alphabetically -->
+  <TinyTweaks.QoLChanges.AutoOwl_ToolTip>Вновь сгенерированным поселенцам с чертой «сова» будет автоматически установлено расписание сна так, чтобы они спали в течение дня.</TinyTweaks.QoLChanges.AutoOwl_ToolTip>
+  <TinyTweaks.QoLChanges.MedBedMedicalAlert>Показывать оповещения «Нужно лечение» для поселенцев на больничных кроватях</TinyTweaks.QoLChanges.MedBedMedicalAlert>
+  <TinyTweaks.QoLChanges.MedBedMedicalAlert_ToolTip>Если у поселенца есть травмы или заболевания, которые нуждаются в уходе, и он уже отдыхает на больничной кровати, по-прежнему показывать оповещения «Нужно лечение» для них.</TinyTweaks.QoLChanges.MedBedMedicalAlert_ToolTip>
   <TinyTweaks.QoLChanges.AlphabeticalBillList>Сортировать список заданий верстака в алфавитном порядке</TinyTweaks.QoLChanges.AlphabeticalBillList>
-  <!-- The drop-down list when clicking the 'Bills' button on any workbench will be sorted alphabetically. -->
-  <TinyTweaks.QoLChanges.AlphabeticalBillList_ToolTip>Выпадающий список при нажатии кнопки "Задания" на любом верстаке будет отсортирован по алфавиту.</TinyTweaks.QoLChanges.AlphabeticalBillList_ToolTip>
-  <!-- Condensed architect menu tabs -->
-  <TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories>Совмещение вкладок меню "Проекты"</TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories>
-  <!-- Certain architect menu tabs from certain mods will be merged with vanilla architect tabs (e.g. 'Furniture+' from More Furniture merged into 'Furniture'). In some cases, new architect tabs may be added too (e.g. buildings from LWM Deep Storage will get their own 'Storage' tab). -->
-  <TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip>Некоторые вкладки меню "Проекты" из некоторых модов будут объединены со вкладками оригинальной игры (например, "Furniture+" из More Furniture объединится со вкладкой "Мебель"(Furniture)). В некоторых случаях также могут быть добавлены новые вкладки меню (например, постройки из LWM Deep Storage получат свою собственную вкладку "Storage").</TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip>
-  <!-- Consistent label capitalisation -->
+  <TinyTweaks.QoLChanges.AlphabeticalBillList_ToolTip>Выпадающий список при нажатии кнопки «Задания» на любом верстаке будет отсортирован по алфавиту.</TinyTweaks.QoLChanges.AlphabeticalBillList_ToolTip>
+  <TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories>Совмещение вкладок меню «Проекты»</TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories>
+  <TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip>Некоторые вкладки меню «Проекты» из некоторых модов будут объединены со вкладками оригинальной игры (например, «Furniture+» из More Furniture объединится со вкладкой «Мебель» (Furniture)). В некоторых случаях также могут быть добавлены новые вкладки меню (например, постройки из LWM Deep Storage получат свою собственную вкладку «Storage»).</TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip>
   <TinyTweaks.QoLChanges.ChangeDefLabels>Прописные/строчные буквы в названиях</TinyTweaks.QoLChanges.ChangeDefLabels>
-  <!-- The labels of things such as items and recipe bills will be use vanilla capitalisation (e.g. White Composite Water Tower =&gt; White composite water tower). -->
   <TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip>Названия предметов и заданий на производство будут приведены к стилю оригинальной игры в плане просписных букв (например,\nWhite Composite Water Tower =&gt;\nWhite composite water tower).</TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip>
+  <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog>Показывать пол и возраст в окне формирования каравана</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog>
+  <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>Показывать пол и возраст персонажей в окне формирования каравана (как в окне торговли).</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>
   <!-- Bug Fixes -->
-  <!-- Bug Fixes -->
-  <TinyTweaks.BugFixesHeading>Исправления ошибок</TinyTweaks.BugFixesHeading>
-  <!-- Melee armour penetration scaling -->
-  <TinyTweaks.BugFixes.MeleeArmourPenetration>Масштабирование бронепробития ближнего боя</TinyTweaks.BugFixes.MeleeArmourPenetration>
-  <!-- Preset armour penetration values for melee weapons such as spears will scale with the weapon's quality and stuff it's made out of. -->
-  <TinyTweaks.BugFixes.MeleeArmourPenetration_ToolTip>Заданные значения бронепробития для оружия ближнего боя, такого как копьё, будут масштабироваться в зависимости от качества оружия и материала, из которого оно сделано.</TinyTweaks.BugFixes.MeleeArmourPenetration_ToolTip>
-  <!-- Balance Changes -->
+  <TinyTweaks.BugFixes.FixAnimalCount>Исправить подсчёт животных в окне «Управление забоем»</TinyTweaks.BugFixes.FixAnimalCount>
+  <TinyTweaks.BugFixes.FixAnimalCount_ToolTip>Показатель общего количества пригодных для забоя животных в колонке «Всего» окна «Управление забоем» теперь будет учитывать беременных животных только в том случае, если установлен соответствующий флажок.\nЭто исправление влияет только на визуальное отображение; расчёт количества животных с позиции игрового процесса изначально был правильным.</TinyTweaks.BugFixes.FixAnimalCount_ToolTip>
   <!-- Balance Changes -->
   <TinyTweaks.BalanceChangesHeading>Изменения баланса</TinyTweaks.BalanceChangesHeading>
-  <!-- Blood pumping affects bleeding -->
   <TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding>Кровообращение влияет на кровотечение</TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding>
-  <!-- Pawn bleed rates will be multiplied by their blood pumping capacities. -->
   <TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding_ToolTip>Скорость кровотечения персонажей будет умножена на их показатель кровообращения.</TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding_ToolTip>
-  <!-- More skill-reliant quality distribution -->
   <TinyTweaks.BalanceChanges.ChangeQualityDistribution>Распределение качества, более зависящее от навыков</TinyTweaks.BalanceChanges.ChangeQualityDistribution>
-  <!-- Skill matters significantly more when producing items that have quality. Quality distribution is also centred around level 6 instead of level 4. -->
   <TinyTweaks.BalanceChanges.ChangeQualityDistribution_ToolTip>Навык имеет значительно большее значение при создании изделий, имеющих качество. Распределение качества также сосредоточено вокруг уровня 6 вместо уровня 4.</TinyTweaks.BalanceChanges.ChangeQualityDistribution_ToolTip>
-  <!-- Delayed skill decay -->
   <TinyTweaks.BalanceChanges.DelayedSkillDecay>Отложенное снижение накопленного опыта</TinyTweaks.BalanceChanges.DelayedSkillDecay>
-  <!-- 8 in-game hours must pass since a pawn last gained at least 2000 experience in a given skill before skill decay kicks in. -->
   <TinyTweaks.BalanceChanges.DelayedSkillDecay_ToolTip>8 игровых часов должно пройти с момента, когда колонист в последний раз набрал не менее 2000 опыта в данном навыке, прежде чем начнется снижение накопленного опыта.</TinyTweaks.BalanceChanges.DelayedSkillDecay_ToolTip>
   <!-- Tiny Additions -->
-  <!-- Tiny Additions -->
   <TinyTweaks.TinyAdditionsHeading>Небольшие дополнения</TinyTweaks.TinyAdditionsHeading>
-  <!-- Random starting season option -->
   <TinyTweaks.TinyAdditions.RandomStartingSeason>Вариант случайного стартового сезона</TinyTweaks.TinyAdditions.RandomStartingSeason>
-  <!-- When opening the advanced settings upon generating a new planet, there will also be an option to have a random starting season. -->
-  <TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip>При открытии меню "Настройки" при создании новой планеты, появится возможность выбрать случайный стартовый сезон.</TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip>
-  <!--The following translations were generated by https://www.deepl.com/-->
-  <TinyTweaks.CurrentModVersion>Установленная версия мода: {0}</TinyTweaks.CurrentModVersion>
-  <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog>Показывать пол и возраст в диалоге формы автофургона</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog>
-  <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>Показывать пол и возраст в диалоге формы каравана, как при торговле.</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>
-  <TinyTweaks.BugFixes.FixAnimalCount>Исправьте подсчет животных в окне автоматического забоя</TinyTweaks.BugFixes.FixAnimalCount>
-  <TinyTweaks.BugFixes.FixAnimalCount_ToolTip>Колонка "Итого" в окне автоубоя будет показывать только общее количество животных, пригодных для убоя, учитывая беременных животных, только если установлен соответствующий флажок. Это исправление только для GUI: внутри код уже считал общее количество таким образом, просто отображалось неправильно.</TinyTweaks.BugFixes.FixAnimalCount_ToolTip>
+  <TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip>При открытии меню «Настройки» при создании новой планеты, появится возможность выбрать случайный стартовый сезон.</TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip>
 </LanguageData>
