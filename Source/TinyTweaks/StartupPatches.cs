@@ -84,7 +84,7 @@ public static class StartupPatches
         foreach (var thingDef in thingDefs)
         {
             Traverse.Create(thingDef).Field("allRecipesCached").SetValue(null);
-            var unused = thingDef.AllRecipes;
+            _ = thingDef.AllRecipes;
         }
     }
 
@@ -126,7 +126,7 @@ public static class StartupPatches
                     BindingFlags.NonPublic | BindingFlags.Static);
             foreach (var dcDef in CategoriesToRemove)
             {
-                defDatabaseRemove?.Invoke(null, new object[] { dcDef });
+                defDatabaseRemove?.Invoke(null, [dcDef]);
             }
         }
 
@@ -138,7 +138,7 @@ public static class StartupPatches
 
     private static void ChangeDesignationCategories()
     {
-        // This method only exists in the case that other modders want their BuildableDefs to be changed and they decide to do so via harmony
+        // This method only exists in the case that other modders want their BuildableDefs to be changed, and they decide to do so via harmony
         foreach (var thDef in DefDatabase<ThingDef>.AllDefs)
         {
             ChangeDesignationCategory(thDef);
@@ -204,7 +204,7 @@ public static class StartupPatches
         if (DesignationCategoryDefOf.DefensesExpanded_CustomCategory != null && bDef.designationCategory ==
             DesignationCategoryDefOf.DefensesExpanded_CustomCategory)
         {
-            bDef.designationCategory = RimWorld.DesignationCategoryDefOf.Security;
+            bDef.designationCategory = DesignationCategoryDefOf.Security;
         }
     }
 

@@ -38,7 +38,7 @@ public class Dialog_AssignCaravanFoodRestrictions : Window
             ManageDrugPoliciesButtonHeight);
         if (Widgets.ButtonText(rect2, "ManageFoodRestrictions".Translate(), true, false))
         {
-            Find.WindowStack.Add(new Dialog_ManageFoodRestrictions(null));
+            Find.WindowStack.Add(new Dialog_ManageFoodPolicies(null));
         }
 
         num += 42f;
@@ -86,35 +86,37 @@ public class Dialog_AssignCaravanFoodRestrictions : Window
         var num3 = rect.x;
         var rect2 = new Rect(num3, rect.y + 2f, num, rect.height - 4f);
 
-        FoodRestriction getPayload(Pawn p)
-        {
-            return p.foodRestriction.CurrentFoodRestriction;
-        }
-
         var menuGenerator =
-            new Func<Pawn, IEnumerable<Widgets.DropdownMenuElement<FoodRestriction>>>(Button_GenerateMenu);
-        var buttonLabel = pawn.foodRestriction.CurrentFoodRestriction.label.Truncate(rect2.width);
-        var label = pawn.foodRestriction.CurrentFoodRestriction.label;
+            new Func<Pawn, IEnumerable<Widgets.DropdownMenuElement<FoodPolicy>>>(Button_GenerateMenu);
+        var buttonLabel = pawn.foodRestriction.CurrentFoodPolicy.label.Truncate(rect2.width);
+        var label = pawn.foodRestriction.CurrentFoodPolicy.label;
         Widgets.Dropdown(rect2, pawn, getPayload, menuGenerator, buttonLabel, null, label, null, null, true);
         num3 += num;
         num3 += 4f;
         var rect4 = new Rect(num3, rect.y + 2f, num2, rect.height - 4f);
         if (Widgets.ButtonText(rect4, "AssignTabEdit".Translate(), true, false))
         {
-            Find.WindowStack.Add(new Dialog_ManageFoodRestrictions(pawn.foodRestriction.CurrentFoodRestriction));
+            Find.WindowStack.Add(new Dialog_ManageFoodPolicies(pawn.foodRestriction.CurrentFoodPolicy));
+        }
+
+        return;
+
+        FoodPolicy getPayload(Pawn p)
+        {
+            return p.foodRestriction.CurrentFoodPolicy;
         }
     }
 
-    private IEnumerable<Widgets.DropdownMenuElement<FoodRestriction>> Button_GenerateMenu(Pawn pawn)
+    private IEnumerable<Widgets.DropdownMenuElement<FoodPolicy>> Button_GenerateMenu(Pawn pawn)
     {
         using var enumerator = Current.Game.foodRestrictionDatabase.AllFoodRestrictions.GetEnumerator();
         while (enumerator.MoveNext())
         {
             var foodRestriction = enumerator.Current;
-            yield return new Widgets.DropdownMenuElement<FoodRestriction>
+            yield return new Widgets.DropdownMenuElement<FoodPolicy>
             {
                 option = new FloatMenuOption(foodRestriction?.label,
-                    delegate { pawn.foodRestriction.CurrentFoodRestriction = foodRestriction; }),
+                    delegate { pawn.foodRestriction.CurrentFoodPolicy = foodRestriction; }),
                 payload = foodRestriction
             };
         }

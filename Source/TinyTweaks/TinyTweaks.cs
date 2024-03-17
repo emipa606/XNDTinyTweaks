@@ -10,7 +10,7 @@ public class TinyTweaks : Mod
     public static Harmony harmonyInstance;
     public static string currentVersion;
 
-    public TinyTweaksSettings settings;
+    public readonly TinyTweaksSettings settings;
 
     public TinyTweaks(ModContentPack content) : base(content)
     {

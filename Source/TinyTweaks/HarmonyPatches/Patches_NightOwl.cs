@@ -75,7 +75,7 @@ public static class Patches_NightOwl
                 return;
             }
 
-            if (__instance is not { })
+            if (__instance is null)
             {
                 return;
             }

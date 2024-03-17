@@ -18,7 +18,7 @@ public static class TinyTweaksUtility
     {
         if (def.comps.NullOrEmpty())
         {
-            def.comps = new List<CompProperties>();
+            def.comps = [];
         }
 
         def.comps.Add(new CompProperties(compType));

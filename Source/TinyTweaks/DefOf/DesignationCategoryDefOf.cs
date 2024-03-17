@@ -10,6 +10,7 @@ public static class DesignationCategoryDefOf
     public static DesignationCategoryDef Furniture;
     public static DesignationCategoryDef Floors;
     public static DesignationCategoryDef Temperature;
+    public static DesignationCategoryDef Security;
 
     public static DesignationCategoryDef ANON2MF =>
         DefDatabase<DesignationCategoryDef>.GetNamedSilentFail("ANON2MF");
