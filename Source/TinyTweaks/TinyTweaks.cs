@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Mlie;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -7,10 +8,10 @@ namespace TinyTweaks;
 
 public class TinyTweaks : Mod
 {
-    public static Harmony harmonyInstance;
-    public static string currentVersion;
+    public static Harmony HarmonyInstance;
+    public static string CurrentVersion;
 
-    public readonly TinyTweaksSettings settings;
+    private readonly TinyTweaksSettings settings;
 
     public TinyTweaks(ModContentPack content) : base(content)
     {
@@ -19,8 +20,8 @@ public class TinyTweaks : Mod
 #endif
 
         settings = GetSettings<TinyTweaksSettings>();
-        harmonyInstance = new Harmony("XeoNovaDan.TinyTweaks");
-        currentVersion =
+        HarmonyInstance = new Harmony("XeoNovaDan.TinyTweaks");
+        CurrentVersion =
             VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
     }
 
@@ -31,7 +32,7 @@ public class TinyTweaks : Mod
 
     public override void DoSettingsWindowContents(Rect inRect)
     {
-        settings.DoWindowContents(inRect);
+        TinyTweaksSettings.DoWindowContents(inRect);
     }
 
     public override void WriteSettings()
@@ -39,5 +40,43 @@ public class TinyTweaks : Mod
         base.WriteSettings();
 
         StartupPatches.SortThingDefRecipes();
+    }
+
+    public static void SetNightOwl(Pawn pawn)
+    {
+        if (pawn.Faction?.IsPlayer != true)
+        {
+            return;
+        }
+
+        if (pawn.def?.race?.Humanlike != true)
+        {
+            return;
+        }
+
+        if (!pawn.story.traits.HasTrait(TraitDefOf.NightOwl))
+        {
+            return;
+        }
+
+        if (pawn.timetable == null)
+        {
+            return;
+        }
+
+        for (var i = 0; i < GenDate.HoursPerDay; i++)
+        {
+            if (i is >= 11 and <= 18)
+            {
+                pawn.timetable.times[i] = TimeAssignmentDefOf.Sleep;
+            }
+            else
+            {
+                if (pawn.timetable.times[i] == TimeAssignmentDefOf.Sleep)
+                {
+                    pawn.timetable.times[i] = TimeAssignmentDefOf.Anything;
+                }
+            }
+        }
     }
 }

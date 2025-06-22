@@ -10,15 +10,12 @@ public class CompSkillRecordCache : ThingComp
 
     private const int MinTicksSinceSkillGainForSkillDecay = GenDate.TicksPerHour * 8;
 
-    public Dictionary<SkillDef, int> lastExperienceGainTickForSkillsCache = new Dictionary<SkillDef, int>();
+    private Dictionary<SkillDef, int> lastExperienceGainTickForSkillsCache = new();
 
     public override void CompTick()
     {
         // Because for some reason, doing this either in Initialize or in the field directly still leaves it as null :V
-        if (lastExperienceGainTickForSkillsCache == null)
-        {
-            lastExperienceGainTickForSkillsCache = new Dictionary<SkillDef, int>();
-        }
+        lastExperienceGainTickForSkillsCache ??= new Dictionary<SkillDef, int>();
     }
 
     public void NotifySubstantialExperienceGainedFor(SkillDef skillDef)

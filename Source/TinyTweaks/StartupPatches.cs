@@ -13,20 +13,20 @@ public static class StartupPatches
 {
     static StartupPatches()
     {
-        if (TinyTweaksSettings.changeDefLabels)
+        if (TinyTweaksSettings.ChangeDefLabels)
         {
-            ChangeDefLabels();
+            changeDefLabels();
         }
 
-        if (ModLister.GetActiveModWithIdentifier("LWM.DeepStorage") == null &&
-            TinyTweaksSettings.changeBuildableDefDesignationCategories)
+        if (ModLister.GetActiveModWithIdentifier("LWM.DeepStorage", true) == null &&
+            TinyTweaksSettings.ChangeBuildableDefDesignationCategories)
         {
-            UpdateDesignationCategories();
+            updateDesignationCategories();
         }
 
         // Patch defs
-        PatchThingDefs();
-        if (TinyTweaksSettings.alphabeticalBillList)
+        patchThingDefs();
+        if (TinyTweaksSettings.AlphabeticalBillList)
         {
             SortThingDefRecipes();
         }
@@ -61,7 +61,7 @@ public static class StartupPatches
     public static void SortThingDefRecipes()
     {
         var thingDefs = DefDatabase<ThingDef>.AllDefsListForReading;
-        if (TinyTweaksSettings.alphabeticalBillList)
+        if (TinyTweaksSettings.AlphabeticalBillList)
         {
             //Log.Message($"[XNDTinyTweaks]: Sorting recipes for {thingDefs.Count} thingDefs in alphabetical order");
             foreach (var thingDef in thingDefs)
@@ -88,7 +88,7 @@ public static class StartupPatches
         }
     }
 
-    private static void PatchThingDefs()
+    private static void patchThingDefs()
     {
         var allThingDefs = DefDatabase<ThingDef>.AllDefsListForReading;
         foreach (var tDef in allThingDefs)
@@ -113,10 +113,10 @@ public static class StartupPatches
         }
     }
 
-    private static void UpdateDesignationCategories()
+    private static void updateDesignationCategories()
     {
         // Change the DesignationCategoryDefs of appropriate defs
-        ChangeDesignationCategories();
+        changeDesignationCategories();
 
         // Update all appropriate categories
         if (CategoriesToRemove.Any())
@@ -136,21 +136,21 @@ public static class StartupPatches
         }
     }
 
-    private static void ChangeDesignationCategories()
+    private static void changeDesignationCategories()
     {
         // This method only exists in the case that other modders want their BuildableDefs to be changed, and they decide to do so via harmony
         foreach (var thDef in DefDatabase<ThingDef>.AllDefs)
         {
-            ChangeDesignationCategory(thDef);
+            changeDesignationCategory(thDef);
         }
 
         foreach (var trDef in DefDatabase<TerrainDef>.AllDefs)
         {
-            ChangeDesignationCategory(trDef);
+            changeDesignationCategory(trDef);
         }
     }
 
-    private static void ChangeDesignationCategory(BuildableDef bDef)
+    private static void changeDesignationCategory(BuildableDef bDef)
     {
         if (bDef.designationCategory == null)
         {
@@ -208,10 +208,10 @@ public static class StartupPatches
         }
     }
 
-    private static void ChangeDefLabels()
+    private static void changeDefLabels()
     {
         // Go through every appropriate def that has a label
-        var changeableDefTypes = GenDefDatabase.AllDefTypesWithDatabases().Where(ShouldChangeDefTypeLabel)
+        var changeableDefTypes = GenDefDatabase.AllDefTypesWithDatabases().Where(shouldChangeDefTypeLabel)
             .ToList();
         foreach (var defType in changeableDefTypes)
         {
@@ -224,7 +224,7 @@ public static class StartupPatches
                 }
 
                 // Update the def's label
-                AdjustLabel(ref curDef.label);
+                adjustLabel(ref curDef.label);
 
                 // If the def is a ThingDef...
                 if (curDef is not ThingDef tDef)
@@ -241,19 +241,19 @@ public static class StartupPatches
                 // Update the stuff adjective if there is one
                 if (!stuffProps.stuffAdjective.NullOrEmpty())
                 {
-                    AdjustLabel(ref stuffProps.stuffAdjective);
+                    adjustLabel(ref stuffProps.stuffAdjective);
                 }
             }
         }
     }
 
-    private static bool ShouldChangeDefTypeLabel(Type defType)
+    private static bool shouldChangeDefTypeLabel(Type defType)
     {
         return defType != typeof(StorytellerDef) && defType != typeof(ResearchProjectDef) &&
                defType != typeof(ResearchTabDef) && defType != typeof(ExpansionDef);
     }
 
-    private static void AdjustLabel(ref string label)
+    private static void adjustLabel(ref string label)
     {
         // Split the label up by spaces
         var splitLabel = label.Split(' ');
@@ -267,7 +267,7 @@ public static class StartupPatches
                 var labelPartSplit = splitLabel[i].Split('-');
                 for (var j = 0; j < labelPartSplit.Length; j++)
                 {
-                    AdjustLabelPart(ref labelPartSplit[j], true);
+                    adjustLabelPart(ref labelPartSplit[j], true);
                 }
 
                 splitLabel[i] = string.Join("-", labelPartSplit);
@@ -276,7 +276,7 @@ public static class StartupPatches
             // Otherwise adjust as a whole
             else
             {
-                AdjustLabelPart(ref splitLabel[i], false);
+                adjustLabelPart(ref splitLabel[i], false);
             }
         }
 
@@ -284,7 +284,7 @@ public static class StartupPatches
         label = string.Join(" ", splitLabel);
     }
 
-    private static void AdjustLabelPart(ref string labelPart, bool uncapitaliseSingleCharacters)
+    private static void adjustLabelPart(ref string labelPart, bool uncapitaliseSingleCharacters)
     {
         // If labelPart is only a single character, do nothing unless uncapitaliseSingleCharacters is true
         if (labelPart.Length == 1)

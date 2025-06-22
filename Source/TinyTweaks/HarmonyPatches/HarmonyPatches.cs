@@ -13,6 +13,6 @@ public static class HarmonyPatches
             Harmony.DEBUG = true;
 #endif
 
-        TinyTweaks.harmonyInstance.PatchAll();
+        TinyTweaks.HarmonyInstance.PatchAll();
     }
 }

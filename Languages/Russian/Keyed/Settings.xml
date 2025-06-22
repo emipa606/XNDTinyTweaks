@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <TinyTweaks.CurrentModVersion>Установленная версия мода: {0}</TinyTweaks.CurrentModVersion>
   <TinyTweaks.SettingsCategory>Tiny Tweaks</TinyTweaks.SettingsCategory>
@@ -27,7 +27,7 @@
   <TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories>Совмещение вкладок меню «Проекты»</TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories>
   <TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip>Некоторые вкладки меню «Проекты» из некоторых модов будут объединены со вкладками оригинальной игры (например, «Furniture+» из More Furniture объединится со вкладкой «Мебель» (Furniture)). В некоторых случаях также могут быть добавлены новые вкладки меню (например, постройки из LWM Deep Storage получат свою собственную вкладку «Storage»).</TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip>
   <TinyTweaks.QoLChanges.ChangeDefLabels>Прописные/строчные буквы в названиях</TinyTweaks.QoLChanges.ChangeDefLabels>
-  <TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip>Названия предметов и заданий на производство будут приведены к стилю оригинальной игры в плане просписных букв (например,\nWhite Composite Water Tower =&gt;\nWhite composite water tower).</TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip>
+  <TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip>Названия предметов и заданий на производство будут приведены к стилю оригинальной игры в плане просписных букв (например,\nWhite Composite Water Tower =>\nWhite composite water tower).</TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip>
   <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog>Показывать пол и возраст в окне формирования каравана</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog>
   <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>Показывать пол и возраст персонажей в окне формирования каравана (как в окне торговли).</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>
   <!-- Bug Fixes -->

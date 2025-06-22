@@ -7,7 +7,7 @@ namespace TinyTweaks;
 
 public class Alert_AnimalNeedsRescuing : Alert_Critical
 {
-    private List<Pawn> AnimalsNeedingRescue
+    private static List<Pawn> AnimalsNeedingRescue
     {
         get
         {
@@ -52,6 +52,6 @@ public class Alert_AnimalNeedsRescuing : Alert_Critical
 
     public override AlertReport GetReport()
     {
-        return !TinyTweaksSettings.animalMedicalAlerts ? false : AlertReport.CulpritsAre(AnimalsNeedingRescue);
+        return !TinyTweaksSettings.AnimalMedicalAlerts ? false : AlertReport.CulpritsAre(AnimalsNeedingRescue);
     }
 }

@@ -4,7 +4,7 @@ namespace TinyTweaks;
 
 public class CompSmarterTurretTargeting : ThingComp
 {
-    public bool attackingNonDownedPawn;
+    private bool attackingNonDownedPawn;
 
     public override void PostExposeData()
     {

@@ -16,36 +16,36 @@ public class TinyTweaksSettings : ModSettings
     private const int AdditionsPageIndex = 3;
 
     private const int MaxPageIndex = AdditionsPageIndex;
-    public static bool meleeArmourPenetrationFix = true;
-    public static bool fixAnimalCount = true;
+    private static bool meleeArmourPenetrationFix = true;
+    public static bool FixAnimalCount = true;
 
-    public static bool randomStartingSeason = true;
-    private static int _pageIndex = 1;
+    public static bool RandomStartingSeason = true;
+    private static int pageIndex = 1;
 
-    public static bool animalMedicalAlerts = true;
-    public static bool caravanFoodRestrictions = true;
-    public static bool autoAssignAnimalFollowSettings = true;
-    public static bool autoRemoveMoisturePumps = true;
-    public static bool autoOwl = true;
-    public static bool medBedMedicalAlert = true;
-    public static bool alphabeticalBillList = true;
+    public static bool AnimalMedicalAlerts = true;
+    public static bool CaravanFoodRestrictions = true;
+    public static bool AutoAssignAnimalFollowSettings = true;
+    public static bool AutoRemoveMoisturePumps = true;
+    public static bool AutoOwl = true;
+    public static bool MedBedMedicalAlert = true;
+    public static bool AlphabeticalBillList = true;
     public static bool ShowGenderAgeCaravanFormDialog = true;
 
     // Restart
-    public static bool changeDefLabels = true;
-    public static bool changeBuildableDefDesignationCategories = true;
+    public static bool ChangeDefLabels = true;
+    public static bool ChangeBuildableDefDesignationCategories = true;
 
-    public static bool changeQualityDistribution;
-    public static bool bloodPumpingAffectsBleeding;
-    public static bool delayedSkillDecay;
+    public static bool ChangeQualityDistribution;
+    public static bool BloodPumpingAffectsBleeding;
+    public static bool DelayedSkillDecay;
 
     private static int PageIndex
     {
-        get => _pageIndex;
-        set => _pageIndex = Mathf.Clamp(value, 1, MaxPageIndex);
+        get => pageIndex;
+        set => pageIndex = Mathf.Clamp(value, 1, MaxPageIndex);
     }
 
-    private void DoHeading(Listing_Standard listing, GameFont font)
+    private static void doHeading(Listing_Standard listing, GameFont font)
     {
         listing.Gap(10);
         var headingTranslationKey = "TinyTweaks.";
@@ -69,57 +69,57 @@ public class TinyTweaksSettings : ModSettings
         listing.GapLine(24);
     }
 
-    private void GameRestartNotRequired(Listing_Standard listing)
+    private static void gameRestartNotRequired(Listing_Standard listing)
     {
         listing.Gap(10);
         listing.Label("TinyTweaks.GameRestartNotRequired".Translate());
     }
 
-    private void GameRestartRequired(Listing_Standard listing)
+    private static void gameRestartRequired(Listing_Standard listing)
     {
         listing.Gap(10);
         listing.Label("TinyTweaks.GameRestartRequired".Translate());
     }
 
-    private void DoQualityOfLifeChanges(Listing_Standard options)
+    private static void doQualityOfLifeChanges(Listing_Standard options)
     {
         // 'Game restart not required' note
-        GameRestartNotRequired(options);
+        gameRestartNotRequired(options);
 
         // Animal medical alerts
         options.Gap(10);
-        options.CheckboxLabeled("TinyTweaks.QoLChanges.AnimalMedicalAlerts".Translate(), ref animalMedicalAlerts,
+        options.CheckboxLabeled("TinyTweaks.QoLChanges.AnimalMedicalAlerts".Translate(), ref AnimalMedicalAlerts,
             "TinyTweaks.QoLChanges.AnimalMedicalAlerts_ToolTip".Translate());
 
         // Assign food restrictions for caravans
         options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.QoLChanges.CaravanFoodRestrictions".Translate(),
-            ref caravanFoodRestrictions, "TinyTweaks.QoLChanges.CaravanFoodRestrictions_ToolTip".Translate());
+            ref CaravanFoodRestrictions, "TinyTweaks.QoLChanges.CaravanFoodRestrictions_ToolTip".Translate());
 
         // Automatically assign animals to follow their master
         options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings".Translate(),
-            ref autoAssignAnimalFollowSettings,
+            ref AutoAssignAnimalFollowSettings,
             "TinyTweaks.QoLChanges.AutoAssignAnimalFollowSettings_ToolTip".Translate());
 
         // Automatically remove finished moisture pumps
         options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry".Translate(),
-            ref autoRemoveMoisturePumps, "TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry_ToolTip".Translate());
+            ref AutoRemoveMoisturePumps, "TinyTweaks.QoLChanges.AutoRemoveTerrainPumpDry_ToolTip".Translate());
 
         // Automatically set night owl timetables
         options.Gap(10);
-        options.CheckboxLabeled("TinyTweaks.QoLChanges.AutoOwl".Translate(), ref autoOwl,
+        options.CheckboxLabeled("TinyTweaks.QoLChanges.AutoOwl".Translate(), ref AutoOwl,
             "TinyTweaks.QoLChanges.AutoOwl_ToolTip".Translate());
 
         // Show 'colonist needs treatment' alerts for pawns in medical beds
         options.Gap(10);
-        options.CheckboxLabeled("TinyTweaks.QoLChanges.MedBedMedicalAlert".Translate(), ref medBedMedicalAlert,
+        options.CheckboxLabeled("TinyTweaks.QoLChanges.MedBedMedicalAlert".Translate(), ref MedBedMedicalAlert,
             "TinyTweaks.QoLChanges.MedBedMedicalAlert_ToolTip".Translate());
 
         // Sort workbench bill list alphabetically
         options.Gap(10);
-        options.CheckboxLabeled("TinyTweaks.QoLChanges.AlphabeticalBillList".Translate(), ref alphabeticalBillList,
+        options.CheckboxLabeled("TinyTweaks.QoLChanges.AlphabeticalBillList".Translate(), ref AlphabeticalBillList,
             "TinyTweaks.QoLChanges.AlphabeticalBillList_ToolTip".Translate());
 
         // Show gender and age in caravan form dialog
@@ -131,63 +131,63 @@ public class TinyTweaksSettings : ModSettings
 
         // 'Game restart required' note
         options.GapLine(24);
-        GameRestartRequired(options);
+        gameRestartRequired(options);
 
-        if (ModLister.GetActiveModWithIdentifier("LWM.DeepStorage") == null)
+        if (ModLister.GetActiveModWithIdentifier("LWM.DeepStorage", true) == null)
         {
             // Change architect menu tabs
             options.Gap(10);
             options.CheckboxLabeled("TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories".Translate(),
-                ref changeBuildableDefDesignationCategories,
+                ref ChangeBuildableDefDesignationCategories,
                 "TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip".Translate());
         }
 
         // Consistent label casing
         options.Gap(10);
-        options.CheckboxLabeled("TinyTweaks.QoLChanges.ChangeDefLabels".Translate(), ref changeDefLabels,
+        options.CheckboxLabeled("TinyTweaks.QoLChanges.ChangeDefLabels".Translate(), ref ChangeDefLabels,
             "TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip".Translate());
 
         // Fix animal count on autoslaughter window
         options.Gap(10);
-        options.CheckboxLabeled("TinyTweaks.BugFixes.FixAnimalCount".Translate(), ref fixAnimalCount,
+        options.CheckboxLabeled("TinyTweaks.BugFixes.FixAnimalCount".Translate(), ref FixAnimalCount,
             "TinyTweaks.BugFixes.FixAnimalCount_ToolTip".Translate());
     }
 
-    private void DoBalanceChanges(Listing_Standard options)
+    private static void doBalanceChanges(Listing_Standard options)
     {
         // 'Game restart not required' note
-        GameRestartNotRequired(options);
+        gameRestartNotRequired(options);
 
         // Blood pumping affects bleeding
         options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding".Translate(),
-            ref bloodPumpingAffectsBleeding,
+            ref BloodPumpingAffectsBleeding,
             "TinyTweaks.BalanceChanges.BloodPumpingAffectsBleeding_ToolTip".Translate());
 
         // Change quality distribution
         options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.BalanceChanges.ChangeQualityDistribution".Translate(),
-            ref changeQualityDistribution,
+            ref ChangeQualityDistribution,
             "TinyTweaks.BalanceChanges.ChangeQualityDistribution_ToolTip".Translate());
 
         // Delayed skill decay
         options.Gap(10);
-        options.CheckboxLabeled("TinyTweaks.BalanceChanges.DelayedSkillDecay".Translate(), ref delayedSkillDecay,
+        options.CheckboxLabeled("TinyTweaks.BalanceChanges.DelayedSkillDecay".Translate(), ref DelayedSkillDecay,
             "TinyTweaks.BalanceChanges.DelayedSkillDecay_ToolTip".Translate());
     }
 
-    private void DoAdditions(Listing_Standard options)
+    private static void doAdditions(Listing_Standard options)
     {
         // 'Game restart not required' note
-        GameRestartNotRequired(options);
+        gameRestartNotRequired(options);
 
         // Random season button
         options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.TinyAdditions.RandomStartingSeason".Translate(),
-            ref randomStartingSeason, "TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip".Translate());
+            ref RandomStartingSeason, "TinyTweaks.TinyAdditions.RandomStartingSeason_ToolTip".Translate());
     }
 
-    private void DoPageButtons(Rect wrect)
+    private static void doPageButtons(Rect wrect)
     {
         var halfRectWidth = wrect.width / 2;
         var xOffset = (halfRectWidth - PageButtonWidth) / 2;
@@ -214,7 +214,7 @@ public class TinyTweaksSettings : ModSettings
         Text.Anchor = TextAnchor.UpperLeft;
     }
 
-    public void DoWindowContents(Rect wrect)
+    public static void DoWindowContents(Rect wrect)
     {
         var options = new Listing_Standard();
         var defaultColor = GUI.color;
@@ -223,27 +223,27 @@ public class TinyTweaksSettings : ModSettings
         Text.Font = GameFont.Small;
         Text.Anchor = TextAnchor.UpperLeft;
 
-        DoHeading(options, Text.Font);
+        doHeading(options, Text.Font);
 
         switch (PageIndex)
         {
             case QoLPageIndex:
-                DoQualityOfLifeChanges(options);
+                doQualityOfLifeChanges(options);
                 break;
             case BalancePageIndex:
-                DoBalanceChanges(options);
+                doBalanceChanges(options);
                 break;
             case AdditionsPageIndex:
-                DoAdditions(options);
+                doAdditions(options);
                 break;
         }
 
-        DoPageButtons(wrect);
-        if (TinyTweaks.currentVersion != null)
+        doPageButtons(wrect);
+        if (TinyTweaks.CurrentVersion != null)
         {
             options.Gap(10);
             GUI.contentColor = Color.gray;
-            options.Label("TinyTweaks.CurrentModVersion".Translate(TinyTweaks.currentVersion));
+            options.Label("TinyTweaks.CurrentModVersion".Translate(TinyTweaks.CurrentVersion));
             GUI.contentColor = Color.white;
         }
 
@@ -254,26 +254,26 @@ public class TinyTweaksSettings : ModSettings
 
     public override void ExposeData()
     {
-        Scribe_Values.Look(ref animalMedicalAlerts, "animalMedicalAlerts", true);
-        Scribe_Values.Look(ref caravanFoodRestrictions, "caravanFoodRestrictions", true);
-        Scribe_Values.Look(ref autoAssignAnimalFollowSettings, "autoAssignAnimalFollowSettings", true);
-        Scribe_Values.Look(ref autoRemoveMoisturePumps, "autoRemoveMoisturePumps", true);
-        Scribe_Values.Look(ref autoOwl, "autoOwl", true);
-        Scribe_Values.Look(ref medBedMedicalAlert, "medBedMedicalAlert", true);
-        Scribe_Values.Look(ref alphabeticalBillList, "alphabeticalBillList", true);
+        Scribe_Values.Look(ref AnimalMedicalAlerts, "animalMedicalAlerts", true);
+        Scribe_Values.Look(ref CaravanFoodRestrictions, "caravanFoodRestrictions", true);
+        Scribe_Values.Look(ref AutoAssignAnimalFollowSettings, "autoAssignAnimalFollowSettings", true);
+        Scribe_Values.Look(ref AutoRemoveMoisturePumps, "autoRemoveMoisturePumps", true);
+        Scribe_Values.Look(ref AutoOwl, "autoOwl", true);
+        Scribe_Values.Look(ref MedBedMedicalAlert, "medBedMedicalAlert", true);
+        Scribe_Values.Look(ref AlphabeticalBillList, "alphabeticalBillList", true);
         Scribe_Values.Look(ref ShowGenderAgeCaravanFormDialog, "ShowGenderAgeCaravanFormDialog", true);
 
         // Restart
-        Scribe_Values.Look(ref changeDefLabels, "changeDefLabels", true);
-        Scribe_Values.Look(ref changeBuildableDefDesignationCategories, "changeBuildableDefDesignationCategories",
+        Scribe_Values.Look(ref ChangeDefLabels, "changeDefLabels", true);
+        Scribe_Values.Look(ref ChangeBuildableDefDesignationCategories, "changeBuildableDefDesignationCategories",
             true);
-        Scribe_Values.Look(ref fixAnimalCount, "fixAnimalCount", true);
+        Scribe_Values.Look(ref FixAnimalCount, "fixAnimalCount", true);
         Scribe_Values.Look(ref meleeArmourPenetrationFix, "meleeArmourPenetrationFix", true);
 
-        Scribe_Values.Look(ref changeQualityDistribution, "changeQualityDistribution");
-        Scribe_Values.Look(ref bloodPumpingAffectsBleeding, "bloodPumpingAffectsBleeding");
-        Scribe_Values.Look(ref delayedSkillDecay, "delayedSkillDecay");
+        Scribe_Values.Look(ref ChangeQualityDistribution, "changeQualityDistribution");
+        Scribe_Values.Look(ref BloodPumpingAffectsBleeding, "bloodPumpingAffectsBleeding");
+        Scribe_Values.Look(ref DelayedSkillDecay, "delayedSkillDecay");
 
-        Scribe_Values.Look(ref randomStartingSeason, "randomStartingSeason", true);
+        Scribe_Values.Look(ref RandomStartingSeason, "randomStartingSeason", true);
     }
 }

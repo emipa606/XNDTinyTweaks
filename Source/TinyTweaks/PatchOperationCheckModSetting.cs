@@ -15,7 +15,7 @@ public class PatchOperationCheckModSetting : PatchOperation
     {
         if (settingsType == null)
         {
-            LogPatchOperationError($"Could not find settings type {settingsType}");
+            logPatchOperationError($"Could not find settings type {settingsType}");
             return false;
         }
 
@@ -26,11 +26,11 @@ public class PatchOperationCheckModSetting : PatchOperation
             return (bool)settingInfo.GetValue(null);
         }
 
-        LogPatchOperationError($"{settingName} could not be found");
+        logPatchOperationError($"{settingName} could not be found");
         return false;
     }
 
-    private void LogPatchOperationError(string message)
+    private void logPatchOperationError(string message)
     {
         Log.Error($"Error with PatchOperationCheckModSetting in {sourceFile}: {message}");
     }

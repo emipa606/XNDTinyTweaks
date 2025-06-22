@@ -7,7 +7,7 @@ namespace TinyTweaks;
 
 public class Alert_LifeThreateningHediffAnimal : Alert_Critical
 {
-    private List<Pawn> SickAnimals
+    private static List<Pawn> SickAnimals
     {
         get
         {
@@ -44,7 +44,7 @@ public class Alert_LifeThreateningHediffAnimal : Alert_Critical
     public override TaggedString GetExplanation()
     {
         var stringBuilder = new StringBuilder();
-        var amputatable = false;
+        var amputate = false;
         var sortedAnimals = TinyTweaksUtility.SortedAnimalList(SickAnimals);
         foreach (var pawn in sortedAnimals)
         {
@@ -64,19 +64,19 @@ public class Alert_LifeThreateningHediffAnimal : Alert_Critical
                     continue;
                 }
 
-                amputatable = true;
+                amputate = true;
                 break;
             }
         }
 
         return string.Format(
-            amputatable
+            amputate
                 ? "TinyTweaks.AnimalsWithLifeThreateningDiseaseAmputation_Desc".Translate()
                 : "TinyTweaks.AnimalsWithLifeThreateningDisease_Desc".Translate(), stringBuilder);
     }
 
     public override AlertReport GetReport()
     {
-        return !TinyTweaksSettings.animalMedicalAlerts ? false : AlertReport.CulpritsAre(SickAnimals);
+        return !TinyTweaksSettings.AnimalMedicalAlerts ? false : AlertReport.CulpritsAre(SickAnimals);
     }
 }

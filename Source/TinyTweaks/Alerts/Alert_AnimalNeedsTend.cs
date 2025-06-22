@@ -13,7 +13,7 @@ public class Alert_AnimalNeedsTend : Alert
         defaultPriority = AlertPriority.High;
     }
 
-    private List<Pawn> NeedingAnimals
+    private static List<Pawn> NeedingAnimals
     {
         get
         {
@@ -27,7 +27,7 @@ public class Alert_AnimalNeedsTend : Alert
                 }
 
                 var curBed = p.CurrentBed();
-                if (curBed != null && !TinyTweaksSettings.medBedMedicalAlert && curBed.Medical)
+                if (curBed != null && !TinyTweaksSettings.MedBedMedicalAlert && curBed.Medical)
                 {
                     continue;
                 }
@@ -69,6 +69,6 @@ public class Alert_AnimalNeedsTend : Alert
 
     public override AlertReport GetReport()
     {
-        return !TinyTweaksSettings.animalMedicalAlerts ? false : AlertReport.CulpritsAre(NeedingAnimals);
+        return !TinyTweaksSettings.AnimalMedicalAlerts ? false : AlertReport.CulpritsAre(NeedingAnimals);
     }
 }

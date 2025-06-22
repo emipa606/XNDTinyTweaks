@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <TinyTweaks.CurrentModVersion>Installed mod-version: {0}</TinyTweaks.CurrentModVersion>
   <TinyTweaks.SettingsCategory>Tiny Tweaks</TinyTweaks.SettingsCategory>
@@ -27,7 +27,7 @@
   <TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories>Condensed architect menu tabs</TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories>
   <TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip>Certain architect menu tabs from certain mods will be merged with vanilla architect tabs (e.g. 'Furniture+' from More Furniture merged into 'Furniture'). In some cases, new architect tabs may be added too (e.g. buildings from LWM Deep Storage will get their own 'Storage' tab).</TinyTweaks.QoLChanges.ChangeBuildableDefDesignationCategories_ToolTip>
   <TinyTweaks.QoLChanges.ChangeDefLabels>Consistent label capitalisation</TinyTweaks.QoLChanges.ChangeDefLabels>
-  <TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip>The labels of things such as items and recipe bills will be use vanilla capitalisation (e.g. White Composite Water Tower =&gt; White composite water tower).</TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip>
+  <TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip>The labels of things such as items and recipe bills will be use vanilla capitalisation (e.g. White Composite Water Tower => White composite water tower).</TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip>
   <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog>Show gender and age in caravan form dialog</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog>
   <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>Show gender and age in caravan form dialog, like when trading.</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>
   <!-- Bug Fixes -->
