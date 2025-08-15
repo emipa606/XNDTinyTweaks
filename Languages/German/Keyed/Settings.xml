@@ -45,4 +45,8 @@
   <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>Geschlecht und Alter im Karawanen-Formular-Dialog anzeigen, wie beim Handel.</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>
   <TinyTweaks.BugFixes.FixAnimalCount>Tierzahl im Fenster für die automatische Schlachtung korrigieren</TinyTweaks.BugFixes.FixAnimalCount>
   <TinyTweaks.BugFixes.FixAnimalCount_ToolTip>Die "Gesamt"-Spalte im Autoschlacht-Fenster zeigt nur die Gesamtzahl der schlachtbaren Tiere an, wobei trächtige Tiere nur berücksichtigt werden, wenn das entsprechende Kontrollkästchen aktiviert ist. Dies ist eine reine GUI-Korrektur: intern hat der Code die Gesamtzahl bereits auf diese Weise gezählt, sie wurde nur falsch angezeigt.</TinyTweaks.BugFixes.FixAnimalCount_ToolTip>
+  <!-- QoL Changes -->
+  <!-- Bug Fixes -->
+  <!-- Balance Changes -->
+  <!-- Tiny Additions -->
 </LanguageData>

@@ -17,7 +17,6 @@ public class TinyTweaksSettings : ModSettings
 
     private const int MaxPageIndex = AdditionsPageIndex;
     private static bool meleeArmourPenetrationFix = true;
-    public static bool FixAnimalCount = true;
 
     public static bool RandomStartingSeason = true;
     private static int pageIndex = 1;
@@ -146,11 +145,6 @@ public class TinyTweaksSettings : ModSettings
         options.Gap(10);
         options.CheckboxLabeled("TinyTweaks.QoLChanges.ChangeDefLabels".Translate(), ref ChangeDefLabels,
             "TinyTweaks.QoLChanges.ChangeDefLabels_ToolTip".Translate());
-
-        // Fix animal count on autoslaughter window
-        options.Gap(10);
-        options.CheckboxLabeled("TinyTweaks.BugFixes.FixAnimalCount".Translate(), ref FixAnimalCount,
-            "TinyTweaks.BugFixes.FixAnimalCount_ToolTip".Translate());
     }
 
     private static void doBalanceChanges(Listing_Standard options)
@@ -267,7 +261,6 @@ public class TinyTweaksSettings : ModSettings
         Scribe_Values.Look(ref ChangeDefLabels, "changeDefLabels", true);
         Scribe_Values.Look(ref ChangeBuildableDefDesignationCategories, "changeBuildableDefDesignationCategories",
             true);
-        Scribe_Values.Look(ref FixAnimalCount, "fixAnimalCount", true);
         Scribe_Values.Look(ref meleeArmourPenetrationFix, "meleeArmourPenetrationFix", true);
 
         Scribe_Values.Look(ref ChangeQualityDistribution, "changeQualityDistribution");

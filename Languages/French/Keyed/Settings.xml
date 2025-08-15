@@ -45,4 +45,8 @@
   <TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>Afficher le sexe et l'âge dans le dialogue du formulaire de la caravane, comme pour le commerce.</TinyTweaks.QoLChanges.ShowGenderAgeCaravanFormDialog_ToolTip>
   <TinyTweaks.BugFixes.FixAnimalCount>Correction du nombre d'animaux dans la fenêtre d'abattage automatique</TinyTweaks.BugFixes.FixAnimalCount>
   <TinyTweaks.BugFixes.FixAnimalCount_ToolTip>La colonne "total" de la fenêtre d'abattage automatique n'affichera que le total des animaux abattables, en considérant les femelles gestantes uniquement si la case spécifique est cochée. C'est un correctif uniquement pour l'interface graphique : en interne, le code comptait déjà le total de cette façon, il était juste mal affiché.</TinyTweaks.BugFixes.FixAnimalCount_ToolTip>
+  <!-- QoL Changes -->
+  <!-- Bug Fixes -->
+  <!-- Balance Changes -->
+  <!-- Tiny Additions -->
 </LanguageData>
