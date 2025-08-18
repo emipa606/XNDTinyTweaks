@@ -11,6 +11,8 @@ namespace TinyTweaks;
 [StaticConstructorOnStartup]
 public static class StartupPatches
 {
+    private static Type XmlExtensions_SettingsMenuDef;
+
     static StartupPatches()
     {
         if (TinyTweaksSettings.ChangeDefLabels)
@@ -180,8 +182,7 @@ public static class StartupPatches
             {
                 // Temperature stuff gets moved to Temperature category
                 if (bDef.researchPrerequisites != null && bDef.researchPrerequisites.Any(r =>
-                        r.defName == "CentralHeating" || r.defName == "PoweredHeating" ||
-                        r.defName == "MultiSplitAirCon"))
+                        r.defName is "CentralHeating" or "PoweredHeating" or "MultiSplitAirCon"))
                 {
                     bDef.designationCategory = DesignationCategoryDefOf.Temperature;
                 }
@@ -207,8 +208,6 @@ public static class StartupPatches
             bDef.designationCategory = DesignationCategoryDefOf.Security;
         }
     }
-
-    private static Type XmlExtensions_SettingsMenuDef;
 
     private static void changeDefLabels()
     {
