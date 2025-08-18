@@ -208,8 +208,12 @@ public static class StartupPatches
         }
     }
 
+    private static Type XmlExtensions_SettingsMenuDef;
+
     private static void changeDefLabels()
     {
+        XmlExtensions_SettingsMenuDef = AccessTools.TypeByName("XmlExtensions.SettingsMenuDef");
+
         // Go through every appropriate def that has a label
         var changeableDefTypes = GenDefDatabase.AllDefTypesWithDatabases().Where(shouldChangeDefTypeLabel)
             .ToList();
@@ -250,7 +254,8 @@ public static class StartupPatches
     private static bool shouldChangeDefTypeLabel(Type defType)
     {
         return defType != typeof(StorytellerDef) && defType != typeof(ResearchProjectDef) &&
-               defType != typeof(ResearchTabDef) && defType != typeof(ExpansionDef);
+               defType != typeof(ResearchTabDef) && defType != typeof(ExpansionDef) &&
+               defType != XmlExtensions_SettingsMenuDef;
     }
 
     private static void adjustLabel(ref string label)
