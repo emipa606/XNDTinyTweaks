@@ -65,7 +65,6 @@ public static class StartupPatches
         var thingDefs = DefDatabase<ThingDef>.AllDefsListForReading;
         if (TinyTweaksSettings.AlphabeticalBillList)
         {
-            //Log.Message($"[XNDTinyTweaks]: Sorting recipes for {thingDefs.Count} thingDefs in alphabetical order");
             foreach (var thingDef in thingDefs)
             {
                 var defAllRecipes = thingDef.AllRecipes;
@@ -74,7 +73,6 @@ public static class StartupPatches
                     continue;
                 }
 
-                //Log.Message($"Recipes found for {thingDef}");
                 defAllRecipes.SortBy(r => r.label);
                 Traverse.Create(thingDef).Field("allRecipesCached").SetValue(defAllRecipes);
             }
@@ -82,7 +80,6 @@ public static class StartupPatches
             return;
         }
 
-        //Log.Message($"[XNDTinyTweaks]: Restoring vanilla order of recipes for {thingDefs.Count} thingDefs");
         foreach (var thingDef in thingDefs)
         {
             Traverse.Create(thingDef).Field("allRecipesCached").SetValue(null);

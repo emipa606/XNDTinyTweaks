@@ -25,18 +25,21 @@ public static class TinyTweaksUtility
         return pawnList;
     }
 
-    public static bool PlayerColonyAnimal(this Pawn p)
+    extension(Pawn p)
     {
-        return p.Faction == Faction.OfPlayer && p.RaceProps.Animal;
-    }
+        public bool PlayerColonyAnimal()
+        {
+            return p.Faction == Faction.OfPlayer && p.RaceProps.Animal;
+        }
 
-    public static bool PlayerColonyAnimal_Alive_NoCryptosleep(this Pawn p)
-    {
-        return p.PlayerColonyAnimal() && !p.Dead && !p.Suspended;
-    }
+        public bool PlayerColonyAnimal_Alive_NoCryptosleep()
+        {
+            return p.PlayerColonyAnimal() && !p.Dead && !p.Suspended;
+        }
 
-    public static bool HasBondRelation(this Pawn p)
-    {
-        return TrainableUtility.GetAllColonistBondsFor(p).Any();
+        public bool HasBondRelation()
+        {
+            return TrainableUtility.GetAllColonistBondsFor(p).Any();
+        }
     }
 }

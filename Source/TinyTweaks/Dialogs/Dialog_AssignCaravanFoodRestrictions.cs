@@ -30,11 +30,11 @@ public class Dialog_AssignCaravanFoodRestrictions : Window
 
     public override Vector2 InitialSize => new(550f, 500f);
 
-    public override void DoWindowContents(Rect rect)
+    public override void DoWindowContents(Rect inRect)
     {
-        rect.height -= CloseButSize.y;
+        inRect.height -= CloseButSize.y;
         var num = 0f;
-        var rect2 = new Rect(rect.width - 354f - 16f, num, AssignDrugPolicyButtonsTotalWidth,
+        var rect2 = new Rect(inRect.width - 354f - 16f, num, AssignDrugPolicyButtonsTotalWidth,
             ManageDrugPoliciesButtonHeight);
         if (Widgets.ButtonText(rect2, "ManageFoodRestrictions".Translate(), true, false))
         {
@@ -42,8 +42,8 @@ public class Dialog_AssignCaravanFoodRestrictions : Window
         }
 
         num += 42f;
-        var outRect = new Rect(0f, num, rect.width, rect.height - num);
-        var viewRect = new Rect(0f, 0f, rect.width - 16f, lastHeight);
+        var outRect = new Rect(0f, num, inRect.width, inRect.height - num);
+        var viewRect = new Rect(0f, 0f, inRect.width - 16f, lastHeight);
         Widgets.BeginScrollView(outRect, ref scrollPos, viewRect);
         var num2 = 0f;
         foreach (var pawn in caravan.pawns)
@@ -65,7 +65,7 @@ public class Dialog_AssignCaravanFoodRestrictions : Window
         Widgets.EndScrollView();
     }
 
-    private void doRow(Rect rect, Pawn pawn)
+    private static void doRow(Rect rect, Pawn pawn)
     {
         var rect2 = new Rect(rect.x, rect.y, rect.width - AssignDrugPolicyButtonsTotalWidth, RowHeight);
         Text.Anchor = TextAnchor.MiddleLeft;
@@ -79,7 +79,7 @@ public class Dialog_AssignCaravanFoodRestrictions : Window
         doAssignFoodRestrictionButtons(rect3, pawn);
     }
 
-    private void doAssignFoodRestrictionButtons(Rect rect, Pawn pawn)
+    private static void doAssignFoodRestrictionButtons(Rect rect, Pawn pawn)
     {
         var num = Mathf.FloorToInt((rect.width - 4f) * 0.714285731f);
         var num2 = Mathf.FloorToInt((rect.width - 4f) * 0.2857143f);
@@ -107,7 +107,7 @@ public class Dialog_AssignCaravanFoodRestrictions : Window
         }
     }
 
-    private IEnumerable<Widgets.DropdownMenuElement<FoodPolicy>> buttonGenerateMenu(Pawn pawn)
+    private static IEnumerable<Widgets.DropdownMenuElement<FoodPolicy>> buttonGenerateMenu(Pawn pawn)
     {
         using var enumerator = Current.Game.foodRestrictionDatabase.AllFoodRestrictions.GetEnumerator();
         while (enumerator.MoveNext())

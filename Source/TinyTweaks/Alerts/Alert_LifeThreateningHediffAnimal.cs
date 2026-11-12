@@ -77,6 +77,11 @@ public class Alert_LifeThreateningHediffAnimal : Alert_Critical
 
     public override AlertReport GetReport()
     {
-        return !TinyTweaksSettings.AnimalMedicalAlerts ? false : AlertReport.CulpritsAre(SickAnimals);
+        if (!TinyTweaksSettings.AnimalMedicalAlerts)
+        {
+            return false;
+        }
+
+        return AlertReport.CulpritsAre(SickAnimals);
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Verse;
+﻿using Verse;
 
 namespace TinyTweaks;
 
@@ -11,14 +9,6 @@ public static class ModCompatibilityCheck
 
     static ModCompatibilityCheck()
     {
-        var loadedMods = ModsConfig.ActiveModsInLoadOrder.ToList();
-
-        foreach (var curMod in loadedMods)
-        {
-            if (curMod.PackageId.Equals("Dubwise.DubsBadHygiene", StringComparison.CurrentCultureIgnoreCase))
-            {
-                DubsBadHygiene = true;
-            }
-        }
+        DubsBadHygiene = ModLister.GetActiveModWithIdentifier("Dubwise.DubsBadHygiene", true) != null;
     }
 }

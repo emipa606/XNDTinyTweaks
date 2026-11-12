@@ -23,7 +23,7 @@ public class PatchOperationCheckModSetting : PatchOperation
             BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
         if (settingInfo != null)
         {
-            return (bool)settingInfo.GetValue(null);
+            return (bool)(settingInfo.GetValue(null) ?? false);
         }
 
         logPatchOperationError($"{settingName} could not be found");

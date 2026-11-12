@@ -1,4 +1,5 @@
-﻿using Verse;
+﻿using System.Reflection;
+using Verse;
 #if DEBUG
 using HarmonyLib;
 #endif
@@ -13,6 +14,6 @@ public static class HarmonyPatches
             Harmony.DEBUG = true;
 #endif
 
-        TinyTweaks.HarmonyInstance.PatchAll();
+        TinyTweaks.HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
     }
 }

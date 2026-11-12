@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using RimWorld;
 using Verse;
@@ -13,12 +14,9 @@ public class Alert_AnimalNeedsRescuing : Alert_Critical
         {
             var pawns = PawnsFinder.AllMaps_Spawned;
             var result = new List<Pawn>();
-            foreach (var p in pawns)
+            foreach (var p in pawns.Where(p => p.PlayerColonyAnimal() && Alert_ColonistNeedsRescuing.NeedsRescue(p)))
             {
-                if (p.PlayerColonyAnimal() && Alert_ColonistNeedsRescuing.NeedsRescue(p))
-                {
-                    result.Add(p);
-                }
+                result.Add(p);
             }
 
             return result;
@@ -52,6 +50,11 @@ public class Alert_AnimalNeedsRescuing : Alert_Critical
 
     public override AlertReport GetReport()
     {
-        return !TinyTweaksSettings.AnimalMedicalAlerts ? false : AlertReport.CulpritsAre(AnimalsNeedingRescue);
+        if (!TinyTweaksSettings.AnimalMedicalAlerts)
+        {
+            return false;
+        }
+
+        return AlertReport.CulpritsAre(AnimalsNeedingRescue);
     }
 }

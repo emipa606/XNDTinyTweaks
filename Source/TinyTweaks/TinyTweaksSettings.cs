@@ -52,16 +52,15 @@ public class TinyTweaksSettings : ModSettings
         {
             case QoLPageIndex:
                 headingTranslationKey += "QualityOfLifeChangesHeading";
-                goto WriteHeader;
+                break;
             case BalancePageIndex:
                 headingTranslationKey += "BalanceChangesHeading";
-                goto WriteHeader;
+                break;
             case AdditionsPageIndex:
                 headingTranslationKey += "TinyAdditionsHeading";
-                goto WriteHeader;
+                break;
         }
 
-        WriteHeader:
         Text.Font = font + 1;
         listing.Label(headingTranslationKey.Translate());
         Text.Font = font;
@@ -243,7 +242,6 @@ public class TinyTweaksSettings : ModSettings
 
         // Finish
         options.End();
-        //Mod.GetSettings<TinyTweaksSettings>().Write();
     }
 
     public override void ExposeData()
